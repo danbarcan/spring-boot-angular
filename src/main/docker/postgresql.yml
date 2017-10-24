@@ -1,0 +1,11 @@
+version: '2'
+services:
+    acspedia-postgresql:
+        image: postgres:9.6.2
+        # volumes:
+        #     - ~/volumes/jhipster/ACSPedia/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=ACSPedia
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
