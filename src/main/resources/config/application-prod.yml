@@ -21,9 +21,9 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://localhost:5432/ACSPedia
-        username: ACSPedia
-        password:
+        url: jdbc:postgresql://localhost:5000/postgres
+        username: postgres
+        password: admin
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL

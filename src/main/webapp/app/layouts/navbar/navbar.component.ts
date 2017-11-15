@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    headers: any[];
 
     constructor(
         private loginService: LoginService,
@@ -32,6 +33,86 @@ export class NavbarComponent implements OnInit {
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
+
+        this.headers = [{
+                        'name': 'ANUL I',
+                        'content': [
+                                    {
+                                        'name': 'Semestrul I',
+                                        'content': []
+                                    },
+                                    {
+                                        'name': 'Semestrul II',
+                                        'content': []
+                                    }
+                                    ]
+                        },
+                        {
+                            'name': 'ANUL II',
+                            'content': [
+                                {
+                                    'name': 'Semestrul I',
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Semestrul II',
+                                    'content': []
+                                }
+                            ]
+                        },
+                        {
+                            'name': 'ANUL III',
+                            'content': [
+                                {
+                                    'name': 'Semestrul I',
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Semestrul II',
+                                    'content': []
+                                }
+                            ]
+                        },
+                        {
+                            'name': 'ANUL IV',
+                            'content': [
+                                {
+                                    'name': 'Semestrul I',
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Semestrul II',
+                                    'content': []
+                                }
+                            ]
+                        },
+                        {
+                            'name': 'Master',
+                            'content': [
+                                {
+                                    'name': 'Semestrul I',
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Semestrul II',
+                                    'content': []
+                                }
+                            ]
+                        },
+                        {
+                            'name': 'Diverse',
+                            'content': [
+                                {
+                                    'name': 'Orar',
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Admitere',
+                                    'content': []
+                                }
+                            ]
+                        }
+                        ];
     }
 
     ngOnInit() {

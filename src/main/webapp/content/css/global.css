@@ -22,11 +22,11 @@ Generic styles
 
 /* Error highlight on input fields */
 .ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid green;
+  border-left: 5px solid #60b8e4;
 }
 
 .ng-invalid:not(form)  {
-  border-left: 5px solid red;
+  border-left: 5px solid #800907;
 }
 
 /* other generic styles */
@@ -39,7 +39,7 @@ Generic styles
 
 .error {
     color: white;
-    background-color: red;
+    background-color: #800907;
 }
 
 .pad {
@@ -65,7 +65,7 @@ Generic styles
 }
 
 .footer {
-    border-top: 1px solid rgba(0,0,0,.125);
+    border-top: 1px solid #002b80;
 }
 
 /* ==========================================================================

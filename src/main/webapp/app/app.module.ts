@@ -21,7 +21,6 @@ import {
     NavbarComponent,
     FooterComponent,
     ProfileService,
-    PageRibbonComponent,
     ErrorComponent
 } from './layouts';
 
@@ -41,7 +40,6 @@ import {
         JhiMainComponent,
         NavbarComponent,
         ErrorComponent,
-        PageRibbonComponent,
         FooterComponent
     ],
     providers: [
