@@ -39,10 +39,15 @@ export class NavbarComponent implements OnInit {
                         'content': [
                                     {
                                         'name': 'Semestrul I',
-                                        'content': []
+                                        'show': false,
+                                        'content': [
+                                            {'name': 'APD'},
+                                            {'name': 'APP'}
+                                        ]
                                     },
                                     {
                                         'name': 'Semestrul II',
+                                        'show': false,
                                         'content': []
                                     }
                                     ]
@@ -52,10 +57,12 @@ export class NavbarComponent implements OnInit {
                             'content': [
                                 {
                                     'name': 'Semestrul I',
+                                    'show': false,
                                     'content': []
                                 },
                                 {
                                     'name': 'Semestrul II',
+                                    'show': false,
                                     'content': []
                                 }
                             ]
@@ -65,10 +72,12 @@ export class NavbarComponent implements OnInit {
                             'content': [
                                 {
                                     'name': 'Semestrul I',
+                                    'show': false,
                                     'content': []
                                 },
                                 {
                                     'name': 'Semestrul II',
+                                    'show': false,
                                     'content': []
                                 }
                             ]
@@ -78,10 +87,12 @@ export class NavbarComponent implements OnInit {
                             'content': [
                                 {
                                     'name': 'Semestrul I',
+                                    'show': false,
                                     'content': []
                                 },
                                 {
                                     'name': 'Semestrul II',
+                                    'show': false,
                                     'content': []
                                 }
                             ]
@@ -91,10 +102,12 @@ export class NavbarComponent implements OnInit {
                             'content': [
                                 {
                                     'name': 'Semestrul I',
+                                    'show': false,
                                     'content': []
                                 },
                                 {
                                     'name': 'Semestrul II',
+                                    'show': false,
                                     'content': []
                                 }
                             ]
@@ -104,10 +117,12 @@ export class NavbarComponent implements OnInit {
                             'content': [
                                 {
                                     'name': 'Orar',
+                                    'show': false,
                                     'content': []
                                 },
                                 {
                                     'name': 'Admitere',
+                                    'show': false,
                                     'content': []
                                 }
                             ]
@@ -142,6 +157,14 @@ export class NavbarComponent implements OnInit {
 
     toggleNavbar() {
         this.isNavbarCollapsed = !this.isNavbarCollapsed;
+    }
+
+    showSubMenu(ct: any) {
+        ct.show = true;
+    }
+
+    hideSubMenu(ct: any) {
+        ct.show = false;
     }
 
     getImageUrl() {

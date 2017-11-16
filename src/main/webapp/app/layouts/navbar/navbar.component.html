@@ -28,20 +28,20 @@
                     </a>
                     <ul class="dropdown-menu" ngbDropdownMenu>
                         <!-- astea ar trebui sa fie tot dropdown nu merge -->
-                        <li ngbDropdown class="dropdown pointer" *ngFor="let ct of hd.content">
-                            <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);">
-                                <span style="color: #002b80">
-                                    {{ct.name}}
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu" ngbDropdownMenu>
-                                <li class="dropdown-item" *ngFor="let sb of ct.content">
-                                    <span>
-                                    {{sb.name}}
+                        <div *ngFor="let ct of hd.content" (mouseover)="showSubMenu(ct)" (mouseout)="hideSubMenu(ct)">
+                            <li class="dropdown-item" >
+                                    <span style="color: #002b80" >
+                                        {{ct.name}}
                                     </span>
+                            </li>
+                            <div [hidden]="!ct.show">
+                                <li class="dropdown-item" *ngFor="let sb of ct.content">
+                                            <span style="font-size: small">
+                                            &nbsp; &nbsp; &nbsp;{{sb.name}}
+                                            </span>
                                 </li>
-                            </ul>
-                        </li>
+                            </div>
+                        </div>
                     </ul>
             </li>
 
