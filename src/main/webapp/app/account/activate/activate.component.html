@@ -1,15 +1,15 @@
 <div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1>Activation</h1>
+            <h1>Activare</h1>
 
-            <div class="alert alert-success" *ngIf="success">
-                <span><strong>Your user account has been activated.</strong> Please </span>
-                <a class="alert-link" (click)="login()">sign in</a>.
+            <div class="alert alert-success" style="background-color: #a1ffff !important; border-color: #55acee !important;" *ngIf="success">
+                <span><strong>Contul a fost activat.</strong> Va rugam </span>
+                <a class="alert-link" (click)="login()">logati-va</a>.
             </div>
 
             <div class="alert alert-danger" *ngIf="error">
-                <strong>Your user could not be activated.</strong> Please use the registration form to sign up.
+                <strong>Contul nu a putut fi activat.</strong> Va rugam folositi formularul de inregistrare pentru a va crea alt cont.
             </div>
 
         </div>

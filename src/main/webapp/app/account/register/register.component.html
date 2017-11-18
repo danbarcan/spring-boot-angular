@@ -1,9 +1,9 @@
 <div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1>Inregistrare</h1>
+            <h1 style="color: #002b80; font-weight: bold ">Inregistrare</h1>
 
-            <div class="alert alert-success" *ngIf="success">
+            <div class="alert alert-success" style="background-color: #a1ffff !important; border-color: #55acee !important;" *ngIf="success">
                 <strong>Inregistrare facuta cu succes!</strong> Va rugam verificativa mailul pentru confirmare.
             </div>
 
@@ -110,10 +110,10 @@
                     </div>
                 </div>
 
-                <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary">Register</button>
+                <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary" style="background-color: #002b80">Register</button>
             </form>
             <p></p>
-            <div class="alert alert-warning">
+            <div class="alert alert-warning" style="background-color: #a1ffff !important; border-color: #55acee !important;">
                 <a class="alert-link" (click)="openLogin()">sign in</a><span>, Pentru testare puteti folosi conturile default<br/>- Administrator (login="admin" si password="admin") <br/>- Utilizator (login="user" si password="user").</span>
             </div>
         </div>

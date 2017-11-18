@@ -2,7 +2,7 @@
 
     <div class="modal-header">
         <h4 class="modal-title" id="myUserLabel">
-            Create or edit a User</h4>
+            Creare/Editare utilizator</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
             (click)="clear()">&times;</button>
     </div>
@@ -15,25 +15,25 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label">Login</label>
+            <label class="form-control-label">Username</label>
             <input type="text" class="form-control" name="login" #loginInput="ngModel"
                    [(ngModel)]="user.login" required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
 
             <div *ngIf="loginInput.dirty && loginInput.invalid">
                 <small class="form-text text-danger"
                    *ngIf="loginInput.errors.required">
-                    This field is required.
+                    Camp obligatoriu.
                 </small>
 
                 <small class="form-text text-danger"
                    *ngIf="loginInput.errors.maxlength"
                   >
-                    This field cannot be longer than 50 characters.
+                    Campul nu poate avea mai mult de 50 de caractere.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label">First Name</label>
+            <label class="form-control-label">Prenume</label>
             <input type="text" class="form-control" name="firstName" #firstNameInput="ngModel"
                    [(ngModel)]="user.firstName" maxlength="50">
 
@@ -41,12 +41,12 @@
                 <small class="form-text text-danger"
                    *ngIf="firstNameInput.errors.maxlength"
                   >
-                    This field cannot be longer than 50 characters.
+                    Campul nu poate avea mai mult de 50 de caractere
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label>Last Name</label>
+            <label>Nume</label>
             <input type="text" class="form-control" name="lastName" #lastNameInput="ngModel"
                    [(ngModel)]="user.lastName" maxlength="50">
 
@@ -54,7 +54,7 @@
                 <small class="form-text text-danger"
                    *ngIf="lastNameInput.errors.maxlength"
                   >
-                    This field cannot be longer than 50 characters.
+                    Campul nu poate avea mai mult de 50 de caractere.
                 </small>
             </div>
         </div>
@@ -66,48 +66,48 @@
             <div *ngIf="emailInput.dirty && emailInput.invalid">
                 <small class="form-text text-danger"
                    *ngIf="emailInput.errors.required">
-                    This field is required.
+                    Camp obligatoriu.
                 </small>
 
                 <small class="form-text text-danger"
                    *ngIf="emailInput.errors.maxlength"
                   >
-                    This field cannot be longer than 100 characters.
+                    Campul poate avea maxim 100 caractere.
                 </small>
 
                 <small class="form-text text-danger"
                    *ngIf="emailInput.errors.minlength"
                    translate-value-min="5">
-                    This field is required to be at least 5 characters.
+                    Campul trebuie sa aiba minim 5 caractere.
                 </small>
 
                 <small class="form-text text-danger"
                    *ngIf="emailInput.errors.email">
-                    Your email is invalid.
+                    Email invalid.
                  </small>
             </div>
         </div>
         <div class="form-check">
             <label class="form-check-label" for="activated">
                 <input class="form-check-input" [disabled]="user.id === null" type="checkbox" id="activated" name="activated" [(ngModel)]="user.activated">
-                <span>Activated</span>
+                <span>Activat</span>
             </label>
         </div>
 
         <div class="form-group">
-            <label>Profiles</label>
+            <label>Profile</label>
             <select class="form-control" multiple name="authority" [(ngModel)]="user.authorities">
                 <option *ngFor="let authority of authorities" [value]="authority">{{authority}}</option>
             </select>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()" style="background-color: #002b80">
+            <span class="fa fa-ban"></span>&nbsp;<span style="color: white"
            >Cancel</span>
         </button>
-        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-floppy-o"></span>&nbsp;<span>Save</span>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary" style="background-color: #002b80">
+            <span class="fa fa-floppy-o"></span>&nbsp;<span style="color: white">Save</span>
         </button>
     </div>
 </form>

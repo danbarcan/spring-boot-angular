@@ -84,7 +84,7 @@ Custom alerts for notification
 ========================================================================== */
 .alerts .alert{
     text-overflow: ellipsis;
-    background-color: #61ffff !important;
+    background-color: #a1ffff !important;
     border-color: #55acee !important;
 }
 .alert pre{

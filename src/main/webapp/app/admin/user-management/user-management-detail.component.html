@@ -1,31 +1,31 @@
 <div *ngIf="user">
     <h2>
-        <span>User</span> [<b>{{user.login}}</b>]
+        <span>Utilizator</span> [<b>{{user.login}}</b>]
     </h2>
     <dl class="row-md jh-entity-details">
-        <dt><span>Login</span></dt>
+        <dt><span>Username</span></dt>
         <dd>
             <span>{{user.login}}</span>
             <span class="badge badge-danger" *ngIf="!user.activated"
-                 >Deactivated</span>
+                 >Dezactivat</span>
             <span class="badge badge-success" *ngIf="user.activated"
-                 >Activated</span>
+                 >Activat</span>
         </dd>
-        <dt><span>First Name</span></dt>
+        <dt><span>Prenume</span></dt>
         <dd>{{user.firstName}}</dd>
-        <dt><span>Last Name</span></dt>
+        <dt><span>Nume</span></dt>
         <dd>{{user.lastName}}</dd>
         <dt><span>Email</span></dt>
         <dd>{{user.email}}</dd>
-        <dt><span>Created By</span></dt>
+        <dt><span>Creat de</span></dt>
         <dd>{{user.createdBy}}</dd>
-        <dt><span>Created Date</span></dt>
+        <dt><span>Data crearii</span></dt>
         <dd>{{user.createdDate | date:'dd/MM/yy HH:mm' }}</dd>
-        <dt><span>Last Modified By</span></dt>
+        <dt><span>Modificat ultima oara de</span></dt>
         <dd>{{user.lastModifiedBy}}</dd>
-        <dt><span>Last Modified Date</span></dt>
+        <dt><span>Data ultimei modificari</span></dt>
         <dd>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</dd>
-        <dt><span>Profiles</span></dt>
+        <dt><span>Profile</span></dt>
         <dd>
             <ul class="list-unstyled">
                 <li *ngFor="let authority of user.authorities">
@@ -36,7 +36,7 @@
     </dl>
     <button type="submit"
             routerLink="/user-management"
-            class="btn btn-info">
+            class="btn btn-info" style="background-color: #002b80">
         <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
     </button>
 </div>

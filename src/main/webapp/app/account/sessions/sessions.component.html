@@ -1,20 +1,20 @@
 <div>
-    <h2 *ngIf="account">Active sessions for [<b>{{account.login}}</b>]</h2>
+    <h2 *ngIf="account">Sesiune activa pentru [<b>{{account.login}}</b>]</h2>
 
-    <div class="alert alert-success" *ngIf="success">
-        <strong>Session invalidated!</strong>
+    <div class="alert alert-success" style="background-color: #a1ffff !important; border-color: #55acee !important;" *ngIf="success">
+        <strong>Sessiune invalida!</strong>
     </div>
     <div class="alert alert-danger" *ngIf="error">
-        <strong>An error has occured!</strong> The session could not be invalidated.
+        <strong>A aparut o eroare!</strong> Sesiunea nu a putut fi invalidata.
     </div>
 
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>IP Address</th>
-                    <th>User agent</th>
-                    <th>Date</th>
+                    <th> Adresa IP </th>
+                    <th> User </th>
+                    <th>Data</th>
                     <th></th>
                 </tr>
             </thead>
@@ -26,8 +26,9 @@
                     <td>
                         <button type="submit"
                                 class="btn btn-primary"
-                                (click)="invalidate(session.series)">
-                                 Invalidate
+                                (click)="invalidate(session.series)"
+                                style="background-color: #002b80">
+                                 Invalidare
                         </button>
                     </td>
                 </tr>

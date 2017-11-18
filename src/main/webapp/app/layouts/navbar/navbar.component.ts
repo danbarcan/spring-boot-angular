@@ -41,14 +41,24 @@ export class NavbarComponent implements OnInit {
                                         'name': 'Semestrul I',
                                         'show': false,
                                         'content': [
-                                            {'name': 'APD'},
-                                            {'name': 'APP'}
+                                            {'name': 'Matematica 1'},
+                                            {'name': 'Matematica 2'},
+                                            {'name': 'Proiectare logica'},
+                                            {'name': 'USO'},
+                                            {'name': 'Programarea calculatoarelor'}
                                         ]
                                     },
                                     {
                                         'name': 'Semestrul II',
                                         'show': false,
-                                        'content': []
+                                        'content': [
+                                            {'name': 'Matematica 3'},
+                                            {'name': 'Bazele electrotehnicii'},
+                                            {'name': 'Fizica'},
+                                            {'name': 'Metode Numerice'},
+                                            {'name': 'Structuri de date'},
+                                            {'name': 'Prelucrarea informatiei'}
+                                        ]
                                     }
                                     ]
                         },
@@ -58,12 +68,25 @@ export class NavbarComponent implements OnInit {
                                 {
                                     'name': 'Semestrul I',
                                     'show': false,
-                                    'content': []
+                                    'content': [
+                                        {'name': 'Analiza algoritmilor'},
+                                        {'name': 'Programare orientata obiect'},
+                                        {'name': 'Teoria sistemelor'},
+                                        {'name': 'Elemente de electronica analogica'},
+                                        {'name': 'IOCLA'}
+                                    ]
                                 },
                                 {
                                     'name': 'Semestrul II',
                                     'show': false,
-                                    'content': []
+                                    'content': [
+                                        {'name': 'Achizitii de date'},
+                                        {'name': 'Calculatoare numerice 1'},
+                                        {'name': 'Paradigme de programare'},
+                                        {'name': 'Electronica digitala'},
+                                        {'name': 'Protocoale de comunicatie'},
+                                        {'name': 'Proiectarea algoritmilor'}
+                                    ]
                                 }
                             ]
                         },
@@ -73,12 +96,25 @@ export class NavbarComponent implements OnInit {
                                 {
                                     'name': 'Semestrul I',
                                     'show': false,
-                                    'content': []
+                                    'content': [
+                                        {'name': 'Retele locale'},
+                                        {'name': 'Calculatoare numerice 2'},
+                                        {'name': 'Limbaje formale si automate'},
+                                        {'name': 'Elemente de grafica pe calculator'},
+                                        {'name': 'Algoritmi paraleli si distribuiti'}
+                                    ]
                                 },
                                 {
                                     'name': 'Semestrul II',
                                     'show': false,
-                                    'content': []
+                                    'content': [
+                                        {'name': 'Baze de date I'},
+                                        {'name': 'Arhitectura sistemelor de calcul'},
+                                        {'name': 'Ingineria calculatoarelor'},
+                                        {'name': 'Sisteme de operare'},
+                                        {'name': 'Proiectarea cu microprocesoare'},
+                                        {'name': 'Ingineria programelor'}
+                                    ]
                                 }
                             ]
                         },
@@ -122,6 +158,21 @@ export class NavbarComponent implements OnInit {
                                 },
                                 {
                                     'name': 'Admitere',
+                                    'show': false,
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Internship',
+                                    'show': false,
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Pareri si sfaturi',
+                                    'show': false,
+                                    'content': []
+                                },
+                                {
+                                    'name': 'Contact',
                                     'show': false,
                                     'content': []
                                 }
