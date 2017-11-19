@@ -8,7 +8,7 @@
         "outDir": "target/www/app",
         "assets": [
             "content",
-            "favicon.ico"
+            "content/images/acs-logo.png"
         ],
         "index": "index.html",
         "main": "app/app.main.ts",
