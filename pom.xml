@@ -505,7 +505,7 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost:5000/postgres</url>
+                    <url>jdbc:postgresql://localhost:5432/postgres</url>
                     <defaultSchemaName></defaultSchemaName>
                     <username>postgres</username>
                     <password>admin</password>
