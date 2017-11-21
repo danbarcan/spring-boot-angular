@@ -23,6 +23,7 @@ import {
     ProfileService,
     ErrorComponent
 } from './layouts';
+import {CoursesModule} from './courses/courses.module';
 
 @NgModule({
     imports: [
@@ -34,6 +35,7 @@ import {
         AcsPediaAdminModule,
         AcsPediaAccountModule,
         AcsPediaEntityModule,
+        CoursesModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

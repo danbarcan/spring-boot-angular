@@ -5,8 +5,6 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileService } from '../profiles/profile.service';
 import { Principal, LoginModalService, LoginService } from '../../shared';
 
-import { VERSION, DEBUG_INFO_ENABLED } from '../../app.constants';
-
 @Component({
     selector: 'jhi-navbar',
     templateUrl: './navbar.component.html',
@@ -31,7 +29,6 @@ export class NavbarComponent implements OnInit {
         private profileService: ProfileService,
         private router: Router
     ) {
-        this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
 
         this.headers = [{
@@ -41,23 +38,34 @@ export class NavbarComponent implements OnInit {
                                         'name': 'Semestrul I',
                                         'show': false,
                                         'content': [
-                                            {'name': 'Matematica 1'},
-                                            {'name': 'Matematica 2'},
-                                            {'name': 'Proiectare logica'},
-                                            {'name': 'USO'},
-                                            {'name': 'Programarea calculatoarelor'}
+                                            {'name': 'Matematica 1',
+                                             'url': 'acspedia/courses/a1s1mate1'},
+                                            {'name': 'Matematica 2',
+                                             'url': 'acspedia/courses/a1s1mate2'},
+                                            {'name': 'Proiectare logica',
+                                             'url': 'acspedia/courses/a1s1pl'},
+                                            {'name': 'USO',
+                                             'url': 'acspedia/courses/a1s1uso'},
+                                            {'name': 'Programarea calculatoarelor',
+                                             'url': 'acspedia/courses/a1s1pc'}
                                         ]
                                     },
                                     {
                                         'name': 'Semestrul II',
                                         'show': false,
                                         'content': [
-                                            {'name': 'Matematica 3'},
-                                            {'name': 'Bazele electrotehnicii'},
-                                            {'name': 'Fizica'},
-                                            {'name': 'Metode Numerice'},
-                                            {'name': 'Structuri de date'},
-                                            {'name': 'Prelucrarea informatiei'}
+                                            {'name': 'Matematica 3',
+                                             'url': 'acspedia/courses/a1s2mate3'},
+                                            {'name': 'Bazele electrotehnicii',
+                                             'url': 'acspedia/courses/a1s2elth'},
+                                            {'name': 'Fizica',
+                                             'url': 'acspedia/courses/a1s2fizica'},
+                                            {'name': 'Metode Numerice',
+                                             'url': 'acspedia/courses/a1s2mn'},
+                                            {'name': 'Structuri de date',
+                                             'url': 'acspedia/courses/a1s2sd'},
+                                            {'name': 'Prelucrarea informatiei',
+                                             'url': 'acspedia/courses/a1s2pi'}
                                         ]
                                     }
                                     ]
@@ -69,23 +77,34 @@ export class NavbarComponent implements OnInit {
                                     'name': 'Semestrul I',
                                     'show': false,
                                     'content': [
-                                        {'name': 'Analiza algoritmilor'},
-                                        {'name': 'Programare orientata obiect'},
-                                        {'name': 'Teoria sistemelor'},
-                                        {'name': 'Elemente de electronica analogica'},
-                                        {'name': 'IOCLA'}
+                                        {'name': 'Analiza algoritmilor',
+                                         'url': 'acspedia/courses/a2s1aa'},
+                                        {'name': 'Programare orientata obiect',
+                                         'url': 'acspedia/courses/a2s1poo'},
+                                        {'name': 'Teoria sistemelor',
+                                         'url': 'acspedia/courses/a2s1ts'},
+                                        {'name': 'Elemente de electronica analogica',
+                                         'url': 'acspedia/courses/a2s1eea'},
+                                        {'name': 'IOCLA',
+                                         'url': 'acspedia/courses/a2s1iocla'}
                                     ]
                                 },
                                 {
                                     'name': 'Semestrul II',
                                     'show': false,
                                     'content': [
-                                        {'name': 'Achizitii de date'},
-                                        {'name': 'Calculatoare numerice 1'},
-                                        {'name': 'Paradigme de programare'},
-                                        {'name': 'Electronica digitala'},
-                                        {'name': 'Protocoale de comunicatie'},
-                                        {'name': 'Proiectarea algoritmilor'}
+                                        {'name': 'Achizitii de date',
+                                         'url': 'acspedia/courses/a2s2ad'},
+                                        {'name': 'Calculatoare numerice 1',
+                                         'url': 'acspedia/courses/a2s2cn1'},
+                                        {'name': 'Paradigme de programare',
+                                         'url': 'acspedia/courses/a2s2pp'},
+                                        {'name': 'Electronica digitala',
+                                         'url': 'acspedia/courses/a2s2ed'},
+                                        {'name': 'Protocoale de comunicatie',
+                                         'url': 'acspedia/courses/a2s2pc'},
+                                        {'name': 'Proiectarea algoritmilor',
+                                         'url': 'acspedia/courses/a2s2pa'}
                                     ]
                                 }
                             ]
@@ -97,23 +116,34 @@ export class NavbarComponent implements OnInit {
                                     'name': 'Semestrul I',
                                     'show': false,
                                     'content': [
-                                        {'name': 'Retele locale'},
-                                        {'name': 'Calculatoare numerice 2'},
-                                        {'name': 'Limbaje formale si automate'},
-                                        {'name': 'Elemente de grafica pe calculator'},
-                                        {'name': 'Algoritmi paraleli si distribuiti'}
+                                        {'name': 'Retele locale',
+                                            'url': 'acspedia/courses/a3s1rl'},
+                                        {'name': 'Calculatoare numerice 2',
+                                            'url': 'acspedia/courses/a3s1cn2'},
+                                        {'name': 'Limbaje formale si automate',
+                                            'url': 'acspedia/courses/a3s1lfa'},
+                                        {'name': 'Elemente de grafica pe calculator',
+                                            'url': 'acspedia/courses/a3s1egc'},
+                                        {'name': 'Algoritmi paraleli si distribuiti',
+                                            'url': 'acspedia/courses/a3s1apd'}
                                     ]
                                 },
                                 {
                                     'name': 'Semestrul II',
                                     'show': false,
                                     'content': [
-                                        {'name': 'Baze de date I'},
-                                        {'name': 'Arhitectura sistemelor de calcul'},
-                                        {'name': 'Ingineria calculatoarelor'},
-                                        {'name': 'Sisteme de operare'},
-                                        {'name': 'Proiectarea cu microprocesoare'},
-                                        {'name': 'Ingineria programelor'}
+                                        {'name': 'Baze de date I',
+                                            'url': 'acspedia/courses/a3s2bd1'},
+                                        {'name': 'Arhitectura sistemelor de calcul',
+                                            'url': 'acspedia/courses/a3s2asc'},
+                                        {'name': 'Ingineria calculatoarelor',
+                                            'url': 'acspedia/courses/a3s2ic'},
+                                        {'name': 'Sisteme de operare',
+                                            'url': 'acspedia/courses/a3s2so'},
+                                        {'name': 'Proiectarea cu microprocesoare',
+                                            'url': 'acspedia/courses/a3s2pm'},
+                                        {'name': 'Ingineria programelor',
+                                            'url': 'acspedia/courses/a3s2ip'}
                                     ]
                                 }
                             ]
@@ -124,11 +154,13 @@ export class NavbarComponent implements OnInit {
                                 {
                                     'name': 'Semestrul I',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 },
                                 {
                                     'name': 'Semestrul II',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 }
                             ]
@@ -139,11 +171,13 @@ export class NavbarComponent implements OnInit {
                                 {
                                     'name': 'Semestrul I',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 },
                                 {
                                     'name': 'Semestrul II',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 }
                             ]
@@ -154,26 +188,31 @@ export class NavbarComponent implements OnInit {
                                 {
                                     'name': 'Orar',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 },
                                 {
                                     'name': 'Admitere',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 },
                                 {
                                     'name': 'Internship',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 },
                                 {
                                     'name': 'Pareri si sfaturi',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 },
                                 {
                                     'name': 'Contact',
                                     'show': false,
+                                    'url': '',
                                     'content': []
                                 }
                             ]
