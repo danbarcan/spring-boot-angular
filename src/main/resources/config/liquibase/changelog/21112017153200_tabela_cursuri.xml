@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <changeSet id="21112017153200" author="agaman">
+
+        <createTable tableName="JHI_CURSURI">
+            <column name="ID" type="varchar(50)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s1mate1"/>
+            <column name="NAME" value="Matematica 1"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s1mate2"/>
+            <column name="NAME" value="Matematica 2"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s1pl"/>
+            <column name="NAME" value="Proiectare Logica"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+        <column name="ID" value="a1s1uso"/>
+        <column name="NAME" value="Utilizarea sistemelor de operare"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s1pc"/>
+            <column name="NAME" value="Programarea Calculatoarelor"/>
+        </insert>
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s2mate3"/>
+            <column name="NAME" value="Matematica 3"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s2elth"/>
+            <column name="NAME" value="Bazele Electrotehnicii"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s2fizica"/>
+            <column name="NAME" value="Fizica"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s2mn"/>
+            <column name="NAME" value="Metode Numerice"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s2sd"/>
+            <column name="NAME" value="Structuri de date"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a1s2pi"/>
+            <column name="NAME" value="Prelucrarea Informatiei"/>
+        </insert>
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s1aa"/>
+            <column name="NAME" value="Analiza Algoritmilor"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s1poo"/>
+            <column name="NAME" value="Programare Orientata Obiect"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s1ts"/>
+            <column name="NAME" value="Teoria Sistemelor"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s1eea"/>
+            <column name="NAME" value="Elemente de Electronica Analogica"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s1iocla"/>
+            <column name="NAME" value="Introducere in organizarea calculatoarelor si limbaj de asambalare"/>
+        </insert>
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s2ad"/>
+            <column name="NAME" value="Achizitii de Date"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s2cn1"/>
+            <column name="NAME" value="Calculatoare Numerice 1"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s2pp"/>
+            <column name="NAME" value="Paradigme de Programare"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s2ed"/>
+            <column name="NAME" value="Electronica Digitala"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s2pc"/>
+            <column name="NAME" value="Protocoale de Comunicatii"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a2s2pa"/>
+            <column name="NAME" value="Proiectarea Algoritmilor"/>
+        </insert>
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s1rl"/>
+            <column name="NAME" value="Retele Locale"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s1cn2"/>
+            <column name="NAME" value="Calculatoare Numerice 2"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s1lfa"/>
+            <column name="NAME" value="Limbaje Formale si Automate"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s1egc"/>
+            <column name="NAME" value="Elemente de Grafica pe Calculator"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s1apd"/>
+            <column name="NAME" value="Algoritmi paraleli si distribuiti"/>
+        </insert>
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s2bd1"/>
+            <column name="NAME" value="Baza de Date 1"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s2asc"/>
+            <column name="NAME" value="Arhitectura Sistemelor de Calcul"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s2ic"/>
+            <column name="NAME" value="Ingineria Calculatoarelor"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s2so"/>
+            <column name="NAME" value="Sisteme de Operare"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s2pm"/>
+            <column name="NAME" value="Proiectarea cu microprocesoare"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a3s2ip"/>
+            <column name="NAME" value="Ingineria programelor"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

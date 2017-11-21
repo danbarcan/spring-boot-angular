@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ChomeComponent} from './chome.component';
+import {CoursesService} from './courses.service';
 
 export const courseroute: Routes = [
     {
@@ -19,6 +20,7 @@ export const courseroute: Routes = [
 
     ],
     providers: [
+        CoursesService
     ],
     declarations: [
         ChomeComponent,
