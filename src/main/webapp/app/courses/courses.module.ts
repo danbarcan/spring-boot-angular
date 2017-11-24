@@ -8,7 +8,9 @@ export const courseroute: Routes = [
         path: 'acspedia',
         children:  [
             {path: 'courses/:cid',
-            component: ChomeComponent}
+            component: ChomeComponent,
+            children: [
+            ]}
             ]
     },
 

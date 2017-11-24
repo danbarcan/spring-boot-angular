@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <changeSet id="24112017150500" author="agaman">
+        <createTable tableName="JHI_VOT_RANKING">
+            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ID_USER" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_PERS" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_COURSE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="ID_USER"
+                                 baseTableName="JHI_VOT_RANKING"
+                                 constraintName="fk_user_vot"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="JHI_USER"/>
+        <addForeignKeyConstraint baseColumnNames="ID_COURSE"
+                                 baseTableName="JHI_VOT_RANKING"
+                                 constraintName="fk_course_vot"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="JHI_CURSURI"/>
+
+
+    </changeSet>
+</databaseChangeLog>

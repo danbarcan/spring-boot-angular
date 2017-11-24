@@ -1,11 +1,15 @@
 package edu.acs.acspedia.service;
 
+import edu.acs.acspedia.domain.Asistent;
 import edu.acs.acspedia.domain.Curs;
+import edu.acs.acspedia.domain.Profesor;
 import edu.acs.acspedia.repository.CursRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Set;
 
 @Service
 @Transactional
@@ -21,6 +25,16 @@ public class CursService {
     @Transactional(readOnly = true)
     public Curs getCurs(String id) {
         return cursRepository.getOne(id);
+    }
+
+    @Transactional(readOnly = true)
+    public Set<Profesor> getProfessors(String id) {
+        return cursRepository.findOneWithProfesorsById(id).getProfesors();
+    }
+
+    @Transactional(readOnly = true)
+    public Set<Asistent> getAssistants(String id) {
+        return cursRepository.findOneWithAsistentsById(id).getAsistents();
     }
 
 }
