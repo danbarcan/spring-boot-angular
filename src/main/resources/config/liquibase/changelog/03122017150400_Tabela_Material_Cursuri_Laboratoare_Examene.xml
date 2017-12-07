@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <changeSet id="0312017150400" author="dbarcan">
+
+        <createTable tableName="JHI_MAT_CURSURI">
+            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ID_CURS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATH" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="JHI_MAT_LABORATOARE">
+            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ID_CURS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATH" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="JHI_MAT_EXAMENE">
+            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ID_CURS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATH" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="ID_CURS"
+                                 baseTableName="JHI_MAT_CURSURI"
+                                 constraintName="fk_mat_cursuri"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="JHI_CURSURI"/>
+
+        <addForeignKeyConstraint baseColumnNames="ID_CURS"
+                                 baseTableName="JHI_MAT_LABORATOARE"
+                                 constraintName="fk_mat_laboratoare"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="JHI_CURSURI"/>
+
+        <addForeignKeyConstraint baseColumnNames="ID_CURS"
+                                 baseTableName="JHI_MAT_EXAMENE"
+                                 constraintName="fk_mat_examene"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="JHI_CURSURI"/>
+
+    </changeSet>
+</databaseChangeLog>
