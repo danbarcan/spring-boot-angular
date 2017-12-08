@@ -3,6 +3,7 @@ package edu.acs.acspedia.service;
 import edu.acs.acspedia.domain.Asistent;
 import edu.acs.acspedia.domain.Pair;
 import edu.acs.acspedia.domain.Profesor;
+import edu.acs.acspedia.domain.Ranking;
 import edu.acs.acspedia.repository.RankingRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,6 +57,7 @@ public class RankingService {
     @Transactional(readOnly = true)
     public List<Pair<Long, Profesor>> getAllVotesP(String cid ) {
         Set<Profesor> ast = cursService.getProfessors(cid);
+        System.out.println(ast);
         List<Pair<Long, Profesor>> lst = new ArrayList<>();
         for (Profesor asistent : ast) {
             lst.add(new Pair<>(getNrVotesP(asistent.getId(), cid),asistent));
@@ -63,7 +65,24 @@ public class RankingService {
         return lst;
     }
 
+    public void voteA(String cid, Long aid, Long uid){
+        Ranking r = new Ranking();
+        r.setId_user(uid);
+        r.setId_course(cid);
+        r.setId_pers(aid);
+        r.setType(false);
+        rankingRepository.saveAndFlush(r);
 
+    }
+
+    public void voteP(String cid, Long aid, Long uid){
+        Ranking r = new Ranking();
+        r.setId_user(uid);
+        r.setId_course(cid);
+        r.setId_pers(aid);
+        r.setType(true);
+        rankingRepository.saveAndFlush(r);
+    }
 
 
 }

@@ -39,9 +39,22 @@ public class RankingResource {
         return rankingService.hasVotedP(uid, cid);
     }
 
-    @GetMapping("/hasVotedA/{uid}")
+    @GetMapping("/hasVotedA/{uid}/{cid}")
     @Timed
     public Boolean hasVotedA(@PathVariable("uid") Long uid, @PathVariable("cid") String cid) {
         return rankingService.hasVotedA(uid, cid);
     }
+
+    @GetMapping("/voteA/{cid}/{aid}/{uid}")
+    @Timed
+    public void voteA(@PathVariable("aid") Long aid, @PathVariable("cid") String cid, @PathVariable("uid") Long uid) {
+        rankingService.voteA(cid, aid, uid);
+    }
+
+    @GetMapping("/voteP/{cid}/{pid}/{uid}")
+    @Timed
+    public void voteP(@PathVariable("pid") Long pid, @PathVariable("cid") String cid, @PathVariable("uid") Long uid) {
+        rankingService.voteP(cid, pid, uid);
+    }
+
 }

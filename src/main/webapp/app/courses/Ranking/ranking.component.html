@@ -1,0 +1,14 @@
+<div *ngIf="elements">
+    <div *ngIf="hasVoted">
+        <ul *ngFor="let element of elements">
+            <input type="checkbox" [disabled]="voted" onclick="vote(element)"><input [value]="element.second.name" disabled>
+        </ul>
+        {{voted}}
+    </div>
+
+    <div *ngIf="!hasVoted">
+        <ul *ngFor="let element of elements">
+            <input type="checkbox"/> <input [value]="element.second.name" disabled>
+        </ul>
+    </div>
+</div>

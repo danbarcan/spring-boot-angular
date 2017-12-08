@@ -1,3 +1,4 @@
+<div *ngIf="course">
 <div class="row">
     <div class="col-sm-8">
         <div class="card">
@@ -45,5 +46,14 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4" >
+        <jhi-rank *ngIf="rankingAURL" [rankingURL]="rankingPURL" [hasVoted]="hasVotedP" [voteURL]="voteAURL">
+        </jhi-rank>
+        <!--<div *ngIf="rankingAURL">-->
+        <!--<jhi-rank [rankingURL]="rankingAURL" [hasVoted]="hasVotedA">-->
+
+        <!--</jhi-rank>-->
+        <!--</div>-->
+    </div>
+</div>
 </div>
