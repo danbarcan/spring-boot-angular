@@ -47,13 +47,12 @@
         </div>
     </div>
     <div class="col-sm-4" >
-        <jhi-rank *ngIf="rankingAURL" [rankingURL]="rankingPURL" [hasVoted]="hasVotedP" [voteURL]="voteAURL">
+        <jhi-rank *ngIf="rankingPURL" [rankingURL]="rankingPURL" [hasVoted]="hasVotedP" [voteURL]="votePURL" title="Ranking Profesori">
         </jhi-rank>
-        <!--<div *ngIf="rankingAURL">-->
-        <!--<jhi-rank [rankingURL]="rankingAURL" [hasVoted]="hasVotedA">-->
-
-        <!--</jhi-rank>-->
-        <!--</div>-->
+        <br>
+        <jhi-rank *ngIf="rankingAURL" [rankingURL]="rankingAURL" [hasVoted]="hasVotedA" [voteURL]="voteAURL"
+                  title="Ranking Asistenti">
+        </jhi-rank>
     </div>
 </div>
 </div>

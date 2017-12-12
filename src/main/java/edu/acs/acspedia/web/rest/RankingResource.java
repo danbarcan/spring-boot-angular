@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import edu.acs.acspedia.domain.Asistent;
 import edu.acs.acspedia.domain.Pair;
 import edu.acs.acspedia.domain.Profesor;
+import edu.acs.acspedia.domain.Ranking;
 import edu.acs.acspedia.service.RankingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,14 +48,14 @@ public class RankingResource {
 
     @GetMapping("/voteA/{cid}/{aid}/{uid}")
     @Timed
-    public void voteA(@PathVariable("aid") Long aid, @PathVariable("cid") String cid, @PathVariable("uid") Long uid) {
-        rankingService.voteA(cid, aid, uid);
+    public Ranking voteA(@PathVariable("aid") Long aid, @PathVariable("cid") String cid, @PathVariable("uid") Long uid) {
+        return rankingService.voteA(cid, aid, uid);
     }
 
     @GetMapping("/voteP/{cid}/{pid}/{uid}")
     @Timed
-    public void voteP(@PathVariable("pid") Long pid, @PathVariable("cid") String cid, @PathVariable("uid") Long uid) {
-        rankingService.voteP(cid, pid, uid);
+    public Ranking voteP(@PathVariable("pid") Long pid, @PathVariable("cid") String cid, @PathVariable("uid") Long uid) {
+        return rankingService.voteP(cid, pid, uid);
     }
 
 }

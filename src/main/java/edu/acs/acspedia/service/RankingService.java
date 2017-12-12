@@ -65,23 +65,24 @@ public class RankingService {
         return lst;
     }
 
-    public void voteA(String cid, Long aid, Long uid){
+    public Ranking voteA(String cid, Long aid, Long uid){
         Ranking r = new Ranking();
         r.setId_user(uid);
         r.setId_course(cid);
         r.setId_pers(aid);
         r.setType(false);
         rankingRepository.saveAndFlush(r);
-
+        return r;
     }
 
-    public void voteP(String cid, Long aid, Long uid){
+    public Ranking voteP(String cid, Long aid, Long uid){
         Ranking r = new Ranking();
         r.setId_user(uid);
         r.setId_course(cid);
         r.setId_pers(aid);
         r.setType(true);
         rankingRepository.saveAndFlush(r);
+        return r;
     }
 
 

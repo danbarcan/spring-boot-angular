@@ -1,14 +1,51 @@
 <div *ngIf="elements">
-    <div *ngIf="hasVoted">
-        <ul *ngFor="let element of elements">
-            <input type="checkbox" [disabled]="voted" onclick="vote(element)"><input [value]="element.second.name" disabled>
-        </ul>
-        {{voted}}
-    </div>
+    <div class="card">
+        <h3 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400"> {{title}}</h3>
+        <br>
+        <div *ngIf="!hasVoted && !voted && !showResults" style="padding-bottom: 0.2rem">
+            <ul *ngFor="let element of elements; let idx = index">
+                <p>
+                    <label class="jh-container" >
+                        <input type="radio" name="radio" (click)="select(idx)">
+                        <span class="jh-checkmark" ></span>
+                    </label>
+                    <input [value]="element.second.name" style="position:relative; left: 10%; padding-left: 0.5rem;
+                            width: auto; background-color: white; border-radius: 0.35rem; border-style: solid; border-width: 1px "
+                        disabled>
+                </p>
+            </ul>
+            <div>
+                <p style="margin-bottom : 0.2rem">
+                    <button (click)="vote()" class="btn btn-primary" style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem">
+                        Votare
+                    </button></p>
+                <p >
+                    <button (click)="showR()" class="btn btn-primary" style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem">
+                        Rezultate
+                    </button>
+                </p>
+            </div>
+        </div>
 
-    <div *ngIf="!hasVoted">
-        <ul *ngFor="let element of elements">
-            <input type="checkbox"/> <input [value]="element.second.name" disabled>
-        </ul>
+        <div *ngIf="hasVoted || voted || showResults">
+            <ul *ngFor="let element of elements">
+                <button class="btn btn-primary" style="background-color: #002b80; color: #c1ffff; padding-right: 1px; border-width: 0;
+                                                        padding-left: 0.2rem; padding-top: 0.1rem; padding-bottom: 0.1rem" > {{element.second.name}}
+                    <button class="btn btn-primary" style="background-color: #c1ffff; color: #002b80; position: relative; border-width: 0;
+                        padding-left: 0.2rem; padding-top: 0.2rem; padding-bottom: 0.2rem" > {{votes>0?element.first / votes * 100:0}}% </button> </button>
+            </ul>
+            <div *ngIf="!voted && !hasVoted">
+                <p>
+                    <button (click)="return()" class="btn btn-primary" style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem">
+                        Votare
+                    </button>
+                </p>
+            </div>
+        </div>
     </div>
 </div>

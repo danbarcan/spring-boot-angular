@@ -1,5 +1,8 @@
 
-import {AfterContentInit, AfterViewChecked, Component, Input, OnInit} from "@angular/core";
+import {
+    AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, Input, OnChanges,
+    OnInit
+} from "@angular/core";
 import {CoursesService} from "../courses.service";
 
 @Component({
@@ -7,13 +10,17 @@ import {CoursesService} from "../courses.service";
     templateUrl: 'ranking.component.html',
 
 })
-export class RankingComponent implements AfterContentInit {
+export class RankingComponent implements OnChanges {
 
     @Input() public rankingURL: string;
     @Input() public hasVoted: boolean;
     @Input() public voteURL: string;
+    @Input() public title: string;
     elements: any[];
     voted: boolean;
+    votedEl: any;
+    votes: number;
+    showResults: boolean;
 
     constructor(
         private courseService: CoursesService
@@ -21,13 +28,33 @@ export class RankingComponent implements AfterContentInit {
         this.voted=false;
     }
 
-    ngAfterContentInit() {
+    ngOnChanges() {
+        let i = 0;
+        let sum = 0;
         this.courseService.getFromURL(this.rankingURL).subscribe( (x) => {this.elements = x;
-        console.log(x)});
+            for(i =0; i<x.length; i++){
+                sum += x[i].first;
+            }
+            this.votes = sum;
+            });
     }
 
-    vote(element: any){
+    select(ind){
+        this.votedEl = ind;
+    }
+
+    vote(){
         this.voted = true;
-        this.courseService.vote(this.voteURL + "/" + element.second.id);
+        this.votes += 1;
+        this.courseService.vote(this.voteURL + "/" + this.elements[this.votedEl].second.id);
+        this.elements[this.votedEl].first += 1;
+    }
+
+    showR(){
+        this.showResults = true;
+    }
+
+    return(){
+        this.showResults = false;
     }
 }

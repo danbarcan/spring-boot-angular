@@ -23,10 +23,6 @@ export class ChomeComponent implements OnInit {
         private courseService: CoursesService,
         private principal: Principal
     ) {
-
-    }
-
-    ngOnInit() {
         this.route.params.subscribe((params) => {
             let cid = params['cid'];
             this.courseService.find(cid).subscribe((x) => this.course = x);
@@ -39,6 +35,10 @@ export class ChomeComponent implements OnInit {
             this.voteAURL = this.courseService.getVoteAURL(cid);
             this.votePURL = this.courseService.getVotePURL(cid);
         });
+    }
+
+    ngOnInit() {
+
 
     }
 

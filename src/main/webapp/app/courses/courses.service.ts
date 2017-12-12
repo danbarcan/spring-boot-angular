@@ -49,8 +49,11 @@ export class CoursesService {
     }
 
     vote(url: string){
+        console.log("bla");
         this.principal.identity().then( (x) => {
-            this.http.get(url + "/" + x.id);
+
+            this.http.get(url + "/" + x.id).subscribe();
+            console.log(url);
         });
     }
 
