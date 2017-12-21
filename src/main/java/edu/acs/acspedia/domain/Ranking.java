@@ -2,15 +2,16 @@ package edu.acs.acspedia.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "jhi_vot_ranking")
-public class Ranking {
+public class Ranking implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @SequenceGenerator(name="my_seq_rank", sequenceName="hibernate_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="my_seq_rank")
     private Long id;
 
     @NotNull

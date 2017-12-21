@@ -3,9 +3,11 @@ import { RouterModule } from '@angular/router';
 
 import { navbarRoute } from '../app.route';
 import { errorRoute } from './';
+import {activateRoute} from "../account/activate/activate.route";
 
 const LAYOUT_ROUTES = [
     navbarRoute,
+    activateRoute,
     ...errorRoute
 ];
 

@@ -4,13 +4,14 @@ import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "jhi_cursuri")
-public class Curs {
+public class Curs implements Serializable {
 
     @Id
     private String id;

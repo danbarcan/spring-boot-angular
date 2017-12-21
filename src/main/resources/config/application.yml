@@ -43,6 +43,9 @@ spring:
     mvc:
         favicon:
             enabled: false
+    http:
+        multipart:
+          enabled: false
     thymeleaf:
         mode: XHTML
     social:

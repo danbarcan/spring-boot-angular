@@ -31,6 +31,7 @@ export class ActivateComponent implements OnInit {
                 this.error = 'ERROR';
             });
         });
+        console.log("bla")
     }
 
     login() {

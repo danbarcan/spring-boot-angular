@@ -21,6 +21,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -46,6 +49,8 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         this.env = env;
         this.jHipsterProperties = jHipsterProperties;
     }
+
+
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -163,6 +168,11 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
             source.registerCorsConfiguration("/v2/api-docs", config);
         }
         return new CorsFilter(source);
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver() {
+        return new StandardServletMultipartResolver();
     }
 
     @Autowired(required = false)
