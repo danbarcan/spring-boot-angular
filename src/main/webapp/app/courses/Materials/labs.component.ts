@@ -1,19 +1,19 @@
-
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
+import {CoursesService} from "../courses.service";
 
 @Component({
-    selector: 'jhi-rank',
-    templateUrl: 'listare.component.html',
+    selector: 'jhi-matlaboratoare',
+    templateUrl: 'labs.component.html',
 
 })
-export class LabsComponent implements OnInit {
+export class LabsComponent {
 
-    constructor(
-    ) {
-
+    constructor(private courseService: CoursesService) {
     }
 
-    ngOnInit() {
+    public uploadFile(evt: any): void {
+        let file = evt.target.files[0];
+        this.courseService.makeFileRequest('/api/upload/curs/a1s1pc', file).subscribe();
     }
 
 }

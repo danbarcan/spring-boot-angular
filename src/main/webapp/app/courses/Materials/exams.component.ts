@@ -2,18 +2,18 @@ import {Component} from "@angular/core";
 import {CoursesService} from "../courses.service";
 
 @Component({
-    selector: 'jhi-matcursuri',
-    templateUrl: 'courses.component.html',
+    selector: 'jhi-matexamene',
+    templateUrl: 'exams.component.html',
 
 })
-export class CoursesComponent {
+export class ExamsComponent {
 
     constructor(private courseService: CoursesService) {
     }
 
     public uploadFile(evt: any): void {
         let file = evt.target.files[0];
-        this.courseService.makeFileRequest('/api/upload/curs/a1s1pc', file).subscribe();
+        this.courseService.makeFileRequest('/api/upload/exam/a1s1pc', file).subscribe();
     }
 
 }

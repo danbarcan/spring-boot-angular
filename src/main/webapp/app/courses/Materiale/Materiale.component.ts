@@ -10,7 +10,6 @@ export class MaterialeComponent{
 
     constructor(
         private courseService: CoursesService, private http: Http){
-        console.log("bla");
     }
 
     fileChange(event): void {
@@ -40,7 +39,7 @@ export class MaterialeComponent{
 
     public uploadFile(evt: any): void {
         let file = evt.target.files[0];
-        this.courseService.makeFileRequest('/api/upload/material', file).subscribe();
+        this.courseService.makeFileRequest('/api/upload/curs/a1s1pc', file).subscribe();
     }
 
 }

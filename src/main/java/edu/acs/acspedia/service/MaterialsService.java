@@ -1,7 +1,8 @@
 package edu.acs.acspedia.service;
 
-import edu.acs.acspedia.domain.*;
-import edu.acs.acspedia.repository.CursRepository;
+import edu.acs.acspedia.domain.MatCursuri;
+import edu.acs.acspedia.domain.MatExamene;
+import edu.acs.acspedia.domain.MatLaboratoare;
 import edu.acs.acspedia.repository.MatCursuriRepository;
 import edu.acs.acspedia.repository.MatExameneRepository;
 import edu.acs.acspedia.repository.MatLaboratoareRepository;
@@ -41,5 +42,17 @@ public class MaterialsService {
     @Transactional(readOnly = true)
     public Set<MatExamene> getMatExamene(String cid) {
         return matExameneRepository.getMatExamene(cid);
+    }
+
+    public void uploadCurs(MatCursuri matCursuri) {
+        matCursuriRepository.save(matCursuri);
+    }
+
+    public void uploadLab(MatLaboratoare matLaboratoare) {
+        matLaboratoareRepository.save(matLaboratoare);
+    }
+
+    public void uploadExam(MatExamene matExamene) {
+        matExameneRepository.save(matExamene);
     }
 }
