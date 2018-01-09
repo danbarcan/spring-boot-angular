@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {Http, RequestOptions, Headers, URLSearchParams} from "@angular/http";
+import {CoursesService} from "../courses.service";
 @Component({
     selector: 'jhi-materiale',
     templateUrl: 'Materiale.component.html',
@@ -7,7 +8,8 @@ import {Http, RequestOptions, Headers, URLSearchParams} from "@angular/http";
 })
 export class MaterialeComponent{
 
-    constructor(private http: Http){
+    constructor(
+        private courseService: CoursesService, private http: Http){
         console.log("bla");
     }
 
@@ -34,6 +36,11 @@ export class MaterialeComponent{
             };
             this.http.post('/api/materiale/upload', formData).subscribe();
         }
+    }
+
+    public uploadFile(evt: any): void {
+        let file = evt.target.files[0];
+        this.courseService.makeFileRequest('/api/upload/material', file).subscribe();
     }
 
 }

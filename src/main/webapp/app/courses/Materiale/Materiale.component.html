@@ -2,4 +2,15 @@
 
     <input type="file" id="avatar" (change)="fileChange($event)" #fileInput>
 
+    <input
+        id="file"
+        type="file"
+        class="form-control-file"
+        accept=".doc,.docx,.pdf,.txt"
+        aria-describedby="fileHelp"
+        (change)="uploadFile($event)">
+    <small id="fileHelp" class="form-text text-muted">
+        The file must be doc, docx, pdf or txt and less than 10MB.
+    </small>
+
 </div>

@@ -12,7 +12,7 @@ import java.util.Set;
 @Repository
 public interface MatExameneRepository extends JpaRepository<MatExamene, String> {
 
-    @Query("SELECT id, id_curs, path FROM MatExamene m where m.idCurs = :cid")
+    @Query("SELECT id, idCurs, path FROM MatExamene m where m.idCurs = :cid")
     Set<MatExamene> getMatExamene(@Param("cid") String cid);
 
 }

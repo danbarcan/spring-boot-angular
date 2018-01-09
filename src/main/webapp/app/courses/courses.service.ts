@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import {Observable, Observer} from 'rxjs/Rx';
 import {Principal} from "../shared/auth/principal.service";
 
 @Injectable()
@@ -67,6 +67,17 @@ export class CoursesService {
 
     getMExams(courseId: number): Observable<String> {
         return this.http.get('api/m_exams/' + courseId ).map( (c) => c.json());
+    }
+
+    public makeFileRequest(url: string, file: File): Observable<string> {
+        return Observable.create(
+            (observer: Observer<string>) => {
+                let formData: FormData = new FormData();
+
+                formData.append('file', file, file.name);
+
+                this.http.post(url, formData).subscribe();
+            });
     }
 
 }

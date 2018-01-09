@@ -1,9 +1,8 @@
 package edu.acs.acspedia.domain;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Objects;
 
 @Entity
@@ -11,16 +10,16 @@ import java.util.Objects;
 public class Materiale implements Serializable {
 
     @Id
-    @SequenceGenerator(name="my_seq_mat", sequenceName="hibernate_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="my_seq_mat")
+    @SequenceGenerator(name = "my_seq_mat", sequenceName = "hibernate_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq_mat")
     private Long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     @Lob
-    @Column(name="file")
-    private MultipartFile file;
+    @Column(name = "file")
+    private byte[] file;
 
     @Column(name = "id_curs")
     private String idCurs;
@@ -34,13 +33,11 @@ public class Materiale implements Serializable {
     @Column(name = "type")
     private String type;
 
-
-
-    public MultipartFile  getFile() {
+    public byte[] getFile() {
         return file;
     }
 
-    public void setFile(MultipartFile  file) {
+    public void setFile(byte[] file) {
         this.file = file;
     }
 
@@ -58,6 +55,38 @@ public class Materiale implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdCurs() {
+        return idCurs;
+    }
+
+    public void setIdCurs(String idCurs) {
+        this.idCurs = idCurs;
+    }
+
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    public Boolean getActivated() {
+        return activated;
+    }
+
+    public void setActivated(Boolean activated) {
+        this.activated = activated;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

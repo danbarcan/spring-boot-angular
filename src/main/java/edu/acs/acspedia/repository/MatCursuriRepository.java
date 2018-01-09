@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface MatCursuriRepository extends JpaRepository<MatCursuri, String> {
 
-    @Query("SELECT id, id_curs, path FROM MatCursuri m where m.idCurs = :cid")
+    @Query("SELECT id, idCurs, path FROM MatCursuri m where m.idCurs = :cid")
     List<MatCursuri> getMatCursuri(@Param("cid") String cid);
 
 }
