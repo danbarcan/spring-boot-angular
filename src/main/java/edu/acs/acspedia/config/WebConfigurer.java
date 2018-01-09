@@ -18,12 +18,14 @@ import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -62,6 +64,21 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         if (env.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
             initCachingHttpHeadersFilter(servletContext, disps);
         }
+
+        final AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
+
+        final ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
+        registration.setLoadOnStartup(1);
+
+        registration.addMapping("/");
+
+        long fileSize = 1024 * 1024 * 10;
+
+        File uploadDirectory = new File(System.getProperty("java.io.tmpdir"));
+        MultipartConfigElement multipartConfigElement = new  MultipartConfigElement(uploadDirectory.getAbsolutePath(), fileSize, fileSize * 2, (int)fileSize / 2);
+
+        registration.setMultipartConfig(multipartConfigElement);
+
         log.info("Web application fully configured");
     }
 
