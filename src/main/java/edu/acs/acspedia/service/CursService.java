@@ -2,6 +2,7 @@ package edu.acs.acspedia.service;
 
 import edu.acs.acspedia.domain.Asistent;
 import edu.acs.acspedia.domain.Curs;
+import edu.acs.acspedia.domain.MatCursuri;
 import edu.acs.acspedia.domain.Profesor;
 import edu.acs.acspedia.repository.CursRepository;
 import org.slf4j.Logger;
@@ -36,5 +37,4 @@ public class CursService {
     public Set<Asistent> getAssistants(String id) {
         return cursRepository.findOneWithAsistentsById(id).getAsistents();
     }
-
 }

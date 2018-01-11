@@ -1,0 +1,106 @@
+package edu.acs.acspedia.web.rest;
+
+import com.codahale.metrics.annotation.Timed;
+import edu.acs.acspedia.domain.MatCursuri;
+import edu.acs.acspedia.domain.MatExamene;
+import edu.acs.acspedia.domain.MatLaboratoare;
+import edu.acs.acspedia.service.MaterialsService;
+import org.apache.commons.io.FileUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Set;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
+@RestController
+@RequestMapping("/api")
+public class MaterialsResource {
+    private final MaterialsService materialsService;
+    private final String MATERIALS_PATH = "D:/";
+
+    public MaterialsResource(MaterialsService materialsService){
+        this.materialsService = materialsService;
+    }
+
+    @GetMapping("/mat_courses/{cid}")
+    @Timed
+    public List<MatCursuri> getMatCursuri(@PathVariable("cid") String cid) {
+        return materialsService.getMatCursuri(cid);
+    }
+
+    @GetMapping("/m_labs/{cid}")
+    @Timed
+    public Set<MatLaboratoare> getMatLaboratoare(@PathVariable("cid") String cid) {
+        return materialsService.getMatLaboratoare(cid);
+    }
+
+    @GetMapping("/m_exams/{cid}")
+    @Timed
+    public Set<MatExamene> getMatExamene(@PathVariable("cid") String cid) {
+        return materialsService.getMatExamene(cid);
+    }
+
+    @PostMapping("/upload/curs/{cid}")
+    @Timed
+    public String uploadCurs(@PathVariable("cid") String cid, @RequestParam("file") MultipartFile file) {
+        checkNotNull(file, "Cannot parse null file");
+
+        MatCursuri matCurs = new MatCursuri();
+        matCurs.setIdCurs(cid);
+        String path = MATERIALS_PATH + "courses/" + cid + "/" + file.getOriginalFilename();
+        matCurs.setPath(path);
+        if (saveFileToDisk(file, path)) {
+            materialsService.uploadCurs(matCurs);
+            return "File saved";
+        }
+        return "File not saved";
+    }
+
+    @PostMapping("/upload/lab/{cid}")
+    @Timed
+    public String uploadLaborator(@PathVariable("cid") String cid, @RequestParam("file") MultipartFile file) {
+        checkNotNull(file, "Cannot parse null file");
+
+        MatLaboratoare matLaboratoare = new MatLaboratoare();
+        matLaboratoare.setIdCurs(cid);
+        String path = MATERIALS_PATH + "labs/" + cid + "/" + file.getOriginalFilename();
+        matLaboratoare.setPath(path);
+        if (saveFileToDisk(file, path)) {
+            materialsService.uploadLab(matLaboratoare);
+            return "File saved";
+        }
+        return "File not saved";
+    }
+
+    @PostMapping("/upload/exam/{cid}")
+    @Timed
+    public String uploadExam(@PathVariable("cid") String cid, @RequestParam("file") MultipartFile file) {
+        checkNotNull(file, "Cannot parse null file");
+
+        MatExamene matExamene = new MatExamene();
+        matExamene.setIdCurs(cid);
+        String path = MATERIALS_PATH + "exams/" + cid + "/" + file.getOriginalFilename();
+        matExamene.setPath(path);
+        if (saveFileToDisk(file, path)) {
+            materialsService.uploadExam(matExamene);
+            return "File saved";
+        }
+        return "File not saved";
+    }
+
+    private boolean saveFileToDisk(MultipartFile file, String path) {
+        try {
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File(path));
+            return true;
+        } catch (IOException ioe) {
+            log.println(ioe);
+            return false;
+        }
+    }
+}

@@ -9,6 +9,7 @@
     <include file="config/liquibase/changelog/24112017115300_Tabela_Profesori_Asistenti.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/24112017150500_Tabel_Voturi_Rank.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20171220121601_Creare_Tabela_Materiale.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/03122017150400_Tabela_Material_Cursuri_Laboratoare_Examene.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/32018010912560_TabelaPareri.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>
