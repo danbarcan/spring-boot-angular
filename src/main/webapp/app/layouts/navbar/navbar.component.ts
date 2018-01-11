@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
 
     inProduction: boolean;
     isNavbarCollapsed: boolean;
-    languages: any[];
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
@@ -166,53 +165,36 @@ export class NavbarComponent implements OnInit {
                             ]
                         },
                         {
-                            'name': 'Master',
-                            'content': [
-                                {
-                                    'name': 'Semestrul I',
-                                    'show': false,
-                                    'url': '',
-                                    'content': []
-                                },
-                                {
-                                    'name': 'Semestrul II',
-                                    'show': false,
-                                    'url': '',
-                                    'content': []
-                                }
-                            ]
-                        },
-                        {
                             'name': 'Diverse',
                             'content': [
                                 {
                                     'name': 'Orar',
                                     'show': false,
-                                    'url': '',
+                                    'url': 'acspedia/orar',
                                     'content': []
                                 },
                                 {
                                     'name': 'Admitere',
                                     'show': false,
-                                    'url': '',
+                                    'url': 'acspedia/admitere',
                                     'content': []
                                 },
                                 {
                                     'name': 'Internship',
                                     'show': false,
-                                    'url': '',
+                                    'url': 'acspedia/internship',
                                     'content': []
                                 },
                                 {
                                     'name': 'Pareri si sfaturi',
                                     'show': false,
-                                    'url': '',
+                                    'url': 'acspedia/parerisfaturi',
                                     'content': []
                                 },
                                 {
                                     'name': 'Contact',
                                     'show': false,
-                                    'url': '',
+                                    'url': 'acspedia/contact',
                                     'content': []
                                 }
                             ]

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="32018010912560" author="agaman">
+        <createTable tableName="JHI_Pareri">
+            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="text" type="varchar(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parinte" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="id_type" type="bigint"/>
+            <column name="id_materie" type="varchar(50)" />
+            <column name="TYPE" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="parinte"
+                                 baseTableName="JHI_Pareri"
+                                 constraintName="fk_pareri_p"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="JHI_Pareri"/>
+    </changeSet>
+</databaseChangeLog>
