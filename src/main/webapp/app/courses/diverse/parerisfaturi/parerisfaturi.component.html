@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="card " *ngIf="username">
+    <h1 class="card-header primary-color white-tex"
+        style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Pareri si Sfaturi in legatura cu facultatea</h1>
+    <div class="card-body " style="border-color: #002b80" >
+        <jhi-forum [getURL]="getURL" [type]="type" [username]="username" ></jhi-forum>
+    </div>
+</div>

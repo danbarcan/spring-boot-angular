@@ -12,7 +12,7 @@ import java.util.Set;
 @Repository
 public interface MatLaboratoareRepository extends JpaRepository<MatLaboratoare, String> {
 
-    @Query("SELECT id, idCurs, path FROM MatLaboratoare m where m.idCurs = :cid")
+    @Query("SELECT m FROM MatLaboratoare m where m.idCurs = :cid and m.activated = 1")
     Set<MatLaboratoare> getMatLaboratoare(@Param("cid") String cid);
 
 }

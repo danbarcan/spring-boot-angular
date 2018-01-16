@@ -4,6 +4,8 @@ import {
     OnInit
 } from "@angular/core";
 import {CoursesService} from "../courses.service";
+import {Principal} from "../../shared/auth/principal.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'jhi-rank',

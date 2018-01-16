@@ -1,0 +1,9 @@
+
+<div class="card" *ngIf="course">
+    <h1 class="card-header primary-color white-tex"
+        style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Pareri {{type}} {{course}}</h1>
+    <div class="card-body " style="border-color: #002b80" >
+        <jhi-forum [getURL]="getURL" [cid]="cid" [type]="type" [username]="username" ></jhi-forum>
+    </div>
+</div>

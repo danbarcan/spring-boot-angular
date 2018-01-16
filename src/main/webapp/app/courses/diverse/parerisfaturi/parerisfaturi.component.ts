@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {Principal} from "../../../shared/auth/principal.service";
 
 @Component({
     selector: 'jhi-pareris',
@@ -6,8 +7,16 @@ import {Component} from "@angular/core";
 
 })
 export class ParerisfaturiComponent {
-    constructor(){
 
+    public type: string;
+    public username: string;
+    public getURL: string;
+
+
+    constructor(private principal: Principal,){
+        this.principal.identity().then( (x) => this.username = x.login)
+        this.getURL="api/pareriG/sfaturi";
+        this.type = "sfaturi";
     }
 
 }

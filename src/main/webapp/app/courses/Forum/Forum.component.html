@@ -1,0 +1,28 @@
+
+<div *ngIf = "pareri">
+    <div *ngFor="let p of pareri" style="padding-left: 2rem; padding-right: 2rem">
+        <br>
+        <span style="font-family: 'Comic Sans MS'; font-size: large; padding: .05rem 1.25rem">{{p.username}}</span>
+        <hr style="background-color: #cccccc">
+        <div>
+            <input class="form-control" [value]="p.text" [(ngModel)]="p.text" [disabled]="!p.enable">
+            <div *ngIf="p.username === username">
+                <div class="col-sm-1" style="float :right">
+                    <button (click)= "enableEditing(p)" *ngIf = "!p.enable"> Edit </button>
+                    <button (click)= "save(p, false)" *ngIf = "p.enable"> Save </button>
+                </div>
+                <div class="col-sm-1" style="float: right">
+                    <button (click)= "del(p)"> Remove </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding-left: 2rem; padding-right: 2rem">
+        <br>
+        <br>
+        <input class="form-control" [value]="newP.text" [(ngModel)]="newP.text">
+        <button (click)= "save(newP, true)" style="float: right"> Save </button>
+        <br>
+        <br>
+    </div>
+</div>

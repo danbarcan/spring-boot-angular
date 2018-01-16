@@ -1,12 +1,15 @@
 package edu.acs.acspedia.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "jhi_mat_cursuri")
-public class MatCursuri {
+public class MatCursuri implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
@@ -20,6 +23,32 @@ public class MatCursuri {
     @NotNull
     @Column(name = "path")
     private String path;
+
+    @NotNull
+    @Column(name = "activated")
+    @JsonIgnore
+    private Boolean activated;
+
+    @NotNull
+    @Column(name = "year")
+    private String year;
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public Boolean getActivated() {
+        return activated;
+    }
+
+    public void setActivated(Boolean activated) {
+        this.activated = activated;
+    }
+
 
     public Long getId() {
         return id;

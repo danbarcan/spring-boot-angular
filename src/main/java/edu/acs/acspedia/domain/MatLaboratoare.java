@@ -2,10 +2,11 @@ package edu.acs.acspedia.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "jhi_mat_laboratoare")
-public class MatLaboratoare {
+public class MatLaboratoare implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
@@ -19,6 +20,30 @@ public class MatLaboratoare {
     @NotNull
     @Column(name = "path")
     private String path;
+
+    @NotNull
+    @Column(name = "activated")
+    private Boolean activated;
+
+    @NotNull
+    @Column(name = "year")
+    private String year;
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public Boolean getActivated() {
+        return activated;
+    }
+
+    public void setActivated(Boolean activated) {
+        this.activated = activated;
+    }
 
     public Long getId() {
         return id;

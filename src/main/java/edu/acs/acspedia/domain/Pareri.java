@@ -13,15 +13,12 @@ import java.util.Set;
 public class Pareri implements Serializable {
 
     @Id
+    @SequenceGenerator(name="my_seq_p", sequenceName="hibernate_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="my_seq_p")
     private Long id;
 
     @Column(name = "text")
     private String text;
-
-    @Column(name = "parinte")
-    @ManyToOne
-    @JsonIgnore
-    private Pareri parinte;
 
     @Column(name = "id_type")
     private Long idType;
@@ -32,11 +29,19 @@ public class Pareri implements Serializable {
     @Column(name = "type")
     private String type;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "parinte")
-    private Set<Pareri> copii = new HashSet<>();
+    @Column(name = "username")
+    private String username;
 
     public Long getId() {
         return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setId(Long id) {
@@ -49,14 +54,6 @@ public class Pareri implements Serializable {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public Pareri getParinte() {
-        return parinte;
-    }
-
-    public void setParinte(Pareri parinte) {
-        this.parinte = parinte;
     }
 
     public Long getIdType() {

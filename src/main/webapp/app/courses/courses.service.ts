@@ -80,4 +80,14 @@ export class CoursesService {
             });
     }
 
+    public delP(p: any){
+        this.http.delete("api/delete/" + p.id).subscribe();
+    }
+
+    public saveParere(p: any){
+
+        this.http.post("api/savePareri", p).subscribe();
+        console.log("asdada");
+    }
+
 }

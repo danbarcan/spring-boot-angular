@@ -22,7 +22,7 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 @RequestMapping("/api")
 public class MaterialsResource {
     private final MaterialsService materialsService;
-    private final String MATERIALS_PATH = "D:/";
+    private final String MATERIALS_PATH = "E:/";
 
     public MaterialsResource(MaterialsService materialsService){
         this.materialsService = materialsService;
@@ -87,6 +87,8 @@ public class MaterialsResource {
         matExamene.setIdCurs(cid);
         String path = MATERIALS_PATH + "exams/" + cid + "/" + file.getOriginalFilename();
         matExamene.setPath(path);
+        matExamene.setActivated(false);
+        matExamene.setYear("2018");
         if (saveFileToDisk(file, path)) {
             materialsService.uploadExam(matExamene);
             return "File saved";
