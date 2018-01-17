@@ -11,15 +11,14 @@ import {Principal} from "../../shared/auth/principal.service";
 export class CoursesComponent {
 
     public cid: string;
-    public type: string;
     public course: String;
     public file : any;
     public files: any[];
-    public years: string[];
+    public years: any[];
 
     constructor( private courseService: CoursesService,
                  private route: ActivatedRoute){
-        this.years = ['2015','2016','2017','2018'];
+        this.years = [{year: '2015'},{year: '2016'},{year: '2017'},{year: '2018'}];
         this.route.params.subscribe((params) => {
             this.cid = params['cid'];
             this.courseService.find(this.cid).subscribe((x) => this.course = x);
@@ -29,7 +28,6 @@ export class CoursesComponent {
 
     public changeFile(evt: any): void{
         this.file = evt.target.files[0];
-        console.log("sada");
     }
 
     public getFileName(file): string{
@@ -37,9 +35,13 @@ export class CoursesComponent {
         return name[name.length-1];
     }
 
-    public uploadFile(): void {
-        console.log("sasda");
-        this.courseService.makeFileRequest('/api/upload/curs/'+this.cid, this.file).subscribe();
+    public uploadFile(year): void {
+        this.courseService.makeFileRequest('/api/upload/curs/'+this.cid +'/'+year, this.file).subscribe();
+        this.file = null;
+    }
+
+    public show(year): void{
+        year.show = year.show?false:true;
     }
 
 }

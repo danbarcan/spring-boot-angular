@@ -1,12 +1,39 @@
-<div>
-    <input
-        id="file"
-        type="file"
-        class="form-control-file"
-        accept=".doc,.docx,.pdf,.txt"
-        aria-describedby="fileHelp"
-        (change)="uploadFile($event)">
-    <small id="fileHelp" class="form-text text-muted">
-        The file must be doc, docx, pdf or txt and less than 10MB.
-    </small>
+
+<div class="card" *ngIf="course">
+    <h1 class="card-header primary-color white-tex"
+        style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Laboratoare {{course}} </h1>
+    <div class="card-body " style="border-color: #002b80" >
+        <div *ngFor="let year of years" style="padding-left: 2rem; padding-right: 2rem">
+            <br>
+            <span style="font-family: 'Comic Sans MS'; font-size: large; padding: .05rem 1.25rem"
+                  (click)="show(year)">{{year.year}}</span>
+            <hr style="background-color: #cccccc">
+            <div *ngIf="year.show">
+                <div *ngFor="let file of files">
+                    <ul>
+                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 550; font-size: medium">{{getFileName(file)}}</span>
+                    </ul>
+                </div>
+                <div style="padding-left: 2rem; padding-right: 2rem">
+                    <input
+                        id="file"
+                        type="file"
+                        style="background-color: #a1ffff; color: #001133"
+                        class="form-control-file"
+                        accept=".doc,.docx,.pdf,.txt"
+                        aria-describedby="fileHelp"
+                        (change)="changeFile($event)">
+                    <button (click)="uploadFile(year.year)"
+                            class="btn btn-primary"
+                            style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Upload </button>
+                    <small id="fileHelp" class="form-text text-muted">
+                        The file must be doc, docx, pdf or txt and less than 10MB.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

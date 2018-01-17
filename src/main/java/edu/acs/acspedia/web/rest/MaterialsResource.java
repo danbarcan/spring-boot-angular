@@ -47,9 +47,9 @@ public class MaterialsResource {
         return materialsService.getMatExamene(cid);
     }
 
-    @PostMapping("/upload/curs/{cid}")
+    @PostMapping("/upload/curs/{cid}/{year}")
     @Timed
-    public String uploadCurs(@PathVariable("cid") String cid, @RequestParam("file") MultipartFile file) {
+    public String uploadCurs(@PathVariable("cid") String cid, @PathVariable("year") String year, @RequestParam("file") MultipartFile file) {
         checkNotNull(file, "Cannot parse null file");
 
         MatCursuri matCurs = new MatCursuri();
@@ -57,7 +57,7 @@ public class MaterialsResource {
         String path = MATERIALS_PATH + "courses/" + cid + "/" + file.getOriginalFilename();
         matCurs.setPath(path);
         matCurs.setActivated(false);
-        matCurs.setYear("2018");
+        matCurs.setYear(year);
         if (saveFileToDisk(file, path)) {
             materialsService.uploadCurs(matCurs);
             return "File saved";
@@ -72,9 +72,9 @@ public class MaterialsResource {
         materialsService.uploadCurs(fisier);
     }
 
-    @PostMapping("/upload/lab/{cid}")
+    @PostMapping("/upload/lab/{cid}/{year}")
     @Timed
-    public String uploadLaborator(@PathVariable("cid") String cid, @RequestParam("file") MultipartFile file) {
+    public String uploadLaborator(@PathVariable("cid") String cid,@PathVariable("year") String year, @RequestParam("file") MultipartFile file) {
         checkNotNull(file, "Cannot parse null file");
 
         MatLaboratoare matLaboratoare = new MatLaboratoare();
@@ -82,7 +82,7 @@ public class MaterialsResource {
         String path = MATERIALS_PATH + "labs/" + cid + "/" + file.getOriginalFilename();
         matLaboratoare.setPath(path);
         matLaboratoare.setActivated(false);
-        matLaboratoare.setYear("2018");
+        matLaboratoare.setYear(year);
         if (saveFileToDisk(file, path)) {
             materialsService.uploadLab(matLaboratoare);
             return "File saved";
@@ -97,9 +97,9 @@ public class MaterialsResource {
         materialsService.uploadLab(fisier);
     }
 
-    @PostMapping("/upload/exam/{cid}")
+    @PostMapping("/upload/exam/{cid}/{year}")
     @Timed
-    public String uploadExam(@PathVariable("cid") String cid, @RequestParam("file") MultipartFile file) {
+    public String uploadExam(@PathVariable("cid") String cid,@PathVariable("year") String year, @RequestParam("file") MultipartFile file) {
         checkNotNull(file, "Cannot parse null file");
 
         MatExamene matExamene = new MatExamene();
@@ -107,7 +107,7 @@ public class MaterialsResource {
         String path = MATERIALS_PATH + "exams/" + cid + "/" + file.getOriginalFilename();
         matExamene.setPath(path);
         matExamene.setActivated(false);
-        matExamene.setYear("2018");
+        matExamene.setYear(year);
         if (saveFileToDisk(file, path)) {
             materialsService.uploadExam(matExamene);
             return "File saved";
