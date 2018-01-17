@@ -18,6 +18,7 @@ import {LabsComponent} from "./Materials/labs.component";
 import {ForumComponent} from "./Forum/Forum.component";
 import {LayoutRoutingModule} from "../layouts/layout-routing.module";
 import {CommonModule} from "@angular/common";
+import {AfisareProblemaComponent} from "./Prezolvare/AfisareProblema.component";
 
 export const courseroute: Routes = [
     {
@@ -46,6 +47,10 @@ export const courseroute: Routes = [
             {
                 path: 'courses/:cid/probleme/:type',
                 component: PrezolvareComponent
+            },
+            {
+                path: 'courses/:cid/probleme/:type/:id',
+                component: AfisareProblemaComponent
             },
             {
                 path: 'orar',
@@ -95,7 +100,8 @@ export const courseroute: Routes = [
         CoursesComponent,
         ExamsComponent,
         LabsComponent,
-        ForumComponent
+        ForumComponent,
+        AfisareProblemaComponent
     ]
 })
 export class CoursesModule {}

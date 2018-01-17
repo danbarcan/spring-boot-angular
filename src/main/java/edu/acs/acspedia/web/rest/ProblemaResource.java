@@ -3,7 +3,9 @@ package edu.acs.acspedia.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import edu.acs.acspedia.domain.FisierP;
+import edu.acs.acspedia.domain.MaparePF;
 import edu.acs.acspedia.domain.Problema;
+import edu.acs.acspedia.repository.MaparePFRepository;
 import edu.acs.acspedia.service.ProblemaService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,16 +21,24 @@ import static edu.acs.acspedia.web.rest.util.FileUtil.saveFileToDisk;
 public class ProblemaResource {
 
     private final ProblemaService problemaService;
+    private final MaparePFRepository maparePFRepository;
     private final String MATERIALS_PATH = "F:/";
 
-    public ProblemaResource(ProblemaService problemaService) {
+    public ProblemaResource(ProblemaService problemaService, MaparePFRepository maparePFRepository){
         this.problemaService = problemaService;
+        this.maparePFRepository = maparePFRepository;
     }
 
     @GetMapping("/probleme/{cid}")
     @Timed
     public List<Problema> getProbleme(@PathVariable("cid") String cid) {
         return problemaService.getProbleme(cid);
+    }
+
+    @GetMapping("/problema/{id}")
+    @Timed
+    public Problema getProbleme(@PathVariable("id") Long id) {
+        return problemaService.get(id);
     }
 
     @GetMapping("/problemeR/{cid}")
@@ -42,16 +52,20 @@ public class ProblemaResource {
         return problemaService.save(p);
     }
 
-    @PostMapping("/upload/probFile")
+    @PostMapping("/upload/probFile/{pid}")
     @Timed
-    public String uploadExam(@RequestParam("file") MultipartFile file) {
+    public String uploadFile(@RequestParam("file") MultipartFile file, @PathVariable("pid") Long pid) {
         checkNotNull(file, "Cannot parse null file");
         FisierP fisierP = new FisierP();
         String path = MATERIALS_PATH + "fisiereP/" + file.getOriginalFilename();
         fisierP.setPath(path);
         fisierP.setActivated(false);
         if (saveFileToDisk(file, path)) {
-            problemaService.saveFile(fisierP);
+            fisierP = problemaService.saveFile(fisierP);
+            MaparePF m = new MaparePF();
+            m.setFid(fisierP.getId());
+            m.setPid(pid);
+            maparePFRepository.saveAndFlush(m);
             return "File saved";
         }
         return "File not saved";

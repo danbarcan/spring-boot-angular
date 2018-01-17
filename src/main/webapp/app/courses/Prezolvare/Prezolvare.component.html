@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div *ngIf="course">
+    <div class="card">
+        <h3 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+               font-size: large; font-weight: 400">Probleme {{course}}</h3>
+        <div class="card-body " style="border-color: #002b80" routerLinkActive="active">
+            <div *ngIf = "listaP">
+                <div *ngFor="let p of listaP" style="padding-left: 2rem; padding-right: 2rem">
+                    <br>
+                    <a [routerLink]="p.id" style="color: #002b80">{{p.title}}</a>
+                    <hr style="background-color: #cccccc; margin-top: 0rem; margin-bottom: 0rem;">
+                </div>
+                <div style="padding-left: 2rem; padding-right: 2rem" *ngIf="type === 'deschise'">
+                    <br>
+                    <br>
+                    <label class="form-control-label" for="title">Titlu Problema</label>
+                    <input id ="title" class="form-control"  [(ngModel)]="problema.title">
+                    <label class="form-control-label" for="content">Descriere Problema</label>
+                    <input id ="content" class="form-control"  [(ngModel)]="problema.text">
+                    <button (click)= "save()" style="float: right"> Save </button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

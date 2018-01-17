@@ -19,6 +19,9 @@ public class Problema {
     @Column(name = "text")
     private String text;
 
+    @Column(name = "title")
+    private String title;
+
     @Column(name = "resolved")
     private Boolean resolved;
 
@@ -34,6 +37,14 @@ public class Problema {
 
     public Boolean getResolved() {
         return resolved;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
     }
 
     public String getUsername() {
@@ -76,6 +87,10 @@ public class Problema {
         joinColumns = {@JoinColumn(name = "pid", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "fid", referencedColumnName = "id")})
     private Set<FisierP> files = new HashSet<>();
+
+    public Set<FisierP> getFiles() {
+        return files;
+    }
 
     @Override
     public boolean equals(Object o) {

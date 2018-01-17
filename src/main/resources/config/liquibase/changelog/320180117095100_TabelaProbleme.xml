@@ -21,6 +21,9 @@
             <column name="text" type="varchar(1000)">
                 <constraints  nullable="false"/>
             </column>
+            <column name="title" type="varchar(150)">
+                <constraints  nullable="false"/>
+            </column>
             <column name="resolved" type="boolean">
                 <constraints  nullable="false"/>
             </column>
@@ -30,7 +33,7 @@
 
         </createTable>
 
-        <createTable tableName="jhi_fisiereProbleme">
+        <createTable tableName="jhi_fisiere_probleme">
             <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -43,6 +46,9 @@
         </createTable>
 
         <createTable tableName="jhi_mapare_probleme_fisiere">
+            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
             <column name="pid" type="bigint">
                 <constraints  nullable="false"/>
             </column>
@@ -61,6 +67,6 @@
                                  baseTableName="jhi_mapare_probleme_fisiere"
                                  constraintName="fk_m_pfisiere"
                                  referencedColumnNames="ID"
-                                 referencedTableName="jhi_fisiereProbleme"/>
+                                 referencedTableName="jhi_fisiere_probleme"/>
     </changeSet>
 </databaseChangeLog>

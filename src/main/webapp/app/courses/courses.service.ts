@@ -87,7 +87,10 @@ export class CoursesService {
     public saveParere(p: any){
 
         this.http.post("api/savePareri", p).subscribe();
-        console.log("asdada");
+    }
+
+    public saveProblema(p :any){
+        this.http.post("api/saveProblema", p).subscribe();
     }
 
 }

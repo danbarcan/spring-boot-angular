@@ -21,6 +21,10 @@ public class ProblemaService {
         this.fisierPRepository = fisierPRepository;
     }
 
+    public Problema get(Long id){
+        return problemeRepository.getOne(id);
+    }
+
     public List<Problema> getProbleme(String cid){
         return problemeRepository.getProbleme(cid);
     }
@@ -33,7 +37,7 @@ public class ProblemaService {
         return problemeRepository.save(p);
     }
 
-    public void saveFile(FisierP p){
-        fisierPRepository.save(p);
+    public FisierP saveFile(FisierP p){
+        return fisierPRepository.saveAndFlush(p);
     }
 }

@@ -12,7 +12,7 @@
             <div *ngIf="year.show">
                 <div *ngFor="let file of files">
                     <ul>
-                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 550; font-size: medium">
+                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 500; font-size: medium">
                             <a [attr.href] = "'/api/download/lab/' + file.id "
                                role="tab"
                                data-toggle="tab">

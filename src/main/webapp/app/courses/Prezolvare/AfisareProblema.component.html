@@ -1,0 +1,41 @@
+<div *ngIf="problema" >
+    <div class="card">
+        <h3 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+           font-size: large; font-weight: 400">{{problema.title}}</h3>
+        <div class="card-body " style="border-color: #002b80; padding-right: 2rem; padding-left: 2rem">
+            <br>
+            <textarea class="form-control" rows="4" style="border-color: #002b80" [(ngModel)]="problema.text"></textarea>
+            <span style="color: #909090">Postat de {{problema.username}}</span>
+            <br>
+            <br>
+            <br>
+            <div *ngFor="let file of problema.files" style="padding-left: 2rem; padding-right: 2rem">
+                <br>
+                <span style="font-family: 'Comic Sans MS'; font-size: large; padding: .05rem 1.25rem"
+                      (click)="show(file)">{{year.year}}</span>
+                <hr style="background-color: #cccccc">
+                <div *ngIf="file.show">
+                    <jhi-forum [getURL]="getURL" [pid]="pid" [type]="type" [username]="username" ></jhi-forum>
+                </div>
+            </div>
+            <div style="padding-left: 2rem; padding-right: 2rem">
+                <input
+                    id="file"
+                    type="file"
+                    style="background-color: #a1ffff; color: #001133"
+                    class="form-control-file"
+                    accept=".doc,.docx,.pdf,.txt"
+                    aria-describedby="fileHelp"
+                    (change)="changeFile($event)">
+                <button (click)="uploadFile()"
+                        class="btn btn-primary"
+                        style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Upload </button>
+                <small id="fileHelp" class="form-text text-muted">
+                    The file must be doc, docx, pdf or txt and less than 10MB.
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
