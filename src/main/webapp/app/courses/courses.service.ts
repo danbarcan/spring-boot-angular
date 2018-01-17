@@ -89,6 +89,10 @@ export class CoursesService {
         this.http.post("api/savePareri", p).subscribe();
     }
 
+    public save(url: string, x){
+        this.http.put(url, x).subscribe();
+    }
+
     public saveProblema(p :any){
         this.http.post("api/saveProblema", p).subscribe();
     }

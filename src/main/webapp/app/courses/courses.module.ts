@@ -19,6 +19,11 @@ import {ForumComponent} from "./Forum/Forum.component";
 import {LayoutRoutingModule} from "../layouts/layout-routing.module";
 import {CommonModule} from "@angular/common";
 import {AfisareProblemaComponent} from "./Prezolvare/AfisareProblema.component";
+import {ActivareFisiereComponent} from "./ActivareFisiere/ActivareFisiere.component";
+import {AcsPediaAdminModule} from "../admin/admin.module";
+import {AcsPediaAccountModule} from "../account/account.module";
+import {HasAnyAuthorityDirective} from "../shared/auth/has-any-authority.directive";
+import {AcsPediaSharedModule} from "../shared/shared.module";
 
 export const courseroute: Routes = [
     {
@@ -27,6 +32,10 @@ export const courseroute: Routes = [
             {
                 path: 'courses/:cid',
                 component: ChomeComponent
+            },
+            {
+                path: 'activare/fisiere',
+                component: ActivareFisiereComponent
             },
             {
                 path: 'courses/:cid/materiale/cursuri',
@@ -82,7 +91,8 @@ export const courseroute: Routes = [
         BrowserModule,
         FormsModule,
         LayoutRoutingModule,
-        CommonModule
+        CommonModule,
+        AcsPediaSharedModule
     ],
     providers: [
         CoursesService
@@ -101,7 +111,8 @@ export const courseroute: Routes = [
         ExamsComponent,
         LabsComponent,
         ForumComponent,
-        AfisareProblemaComponent
-    ]
+        AfisareProblemaComponent,
+        ActivareFisiereComponent
+ ]
 })
 export class CoursesModule {}

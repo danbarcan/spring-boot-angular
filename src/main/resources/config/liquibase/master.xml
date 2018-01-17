@@ -11,5 +11,6 @@
     <include file="config/liquibase/changelog/03122017150400_Tabela_Material_Cursuri_Laboratoare_Examene.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/32018010912560_TabelaPareri.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/320180117095100_TabelaProbleme.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/320180117195200_AdaugareDate.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

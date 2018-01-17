@@ -52,6 +52,13 @@ public class ProblemaResource {
         return problemaService.getFiles(pid);
     }
 
+    @GetMapping("/p/getfilesNA")
+    @Timed
+    public List<FisierP> getFilesNA() {
+        return problemaService.getFilesNA();
+    }
+
+
     @PostMapping("/saveProblema")
     public Problema save(@Valid @RequestBody Problema p) {
         return problemaService.save(p);

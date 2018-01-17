@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <changeSet id="320180117195200" author="agaman">
+
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="a4s1ioc"/>
+            <column name="NAME" value="Interactiunea Om-Calculator"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme de Prelucrare Grafica"/>
+            <column name="NAME" value="a4s1spg"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Inteligenta Artificiala"/>
+            <column name="NAME" value="a4s1ia"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Introducere in Criptologie"/>
+            <column name="NAME" value="a4s1ic"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Baze de Date II"/>
+            <column name="NAME" value="a4s1bdII"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Structuri Multiprocesor"/>
+            <column name="NAME" value="a4s1sm"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Arhitecturi si Prelucrari Paralele"/>
+            <column name="NAME" value="a4s1app"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Proiectarea Retelelor"/>
+            <column name="NAME" value="a4s1pr"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Managementul Proiectelor"/>
+            <column name="NAME" value="a4s1mp"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Evaluarea Performantelor"/>
+            <column name="NAME" value="a4s1ep"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Managementul Proiectelor Software"/>
+            <column name="NAME" value="a4s1mps"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Integrarea Sistemelor Informatice"/>
+            <column name="NAME" value="a4s1isi"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Compilatoare"/>
+            <column name="NAME" value="a4s1cp"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme de Programe pentru Retele de Calculatoare"/>
+            <column name="NAME" value="a4s1sprc"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme cu Microprocesoare"/>
+            <column name="NAME" value="a4s1scm"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme CAD/CASE"/>
+            <column name="NAME" value="a4s2scc"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Programare Web"/>
+            <column name="NAME" value="a4s2pw"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Procesarea Semnalelor"/>
+            <column name="NAME" value="a4s1ps"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme Incorporate"/>
+            <column name="NAME" value="a4s1si"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Utilizarea Bazelor de Date"/>
+            <column name="NAME" value="a4s1ubd"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Elemente de Informatica Mobila"/>
+            <column name="NAME" value="a4s2eim"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Instrumente pentru Dezvoltaea Programelor"/>
+            <column name="NAME" value="a4s2idp"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Invatare Automata"/>
+            <column name="NAME" value="a4s2ia"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme Tolerante la Defecte"/>
+            <column name="NAME" value="a4s2std"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="VLSI I"/>
+            <column name="NAME" value="a4s2vlsi1"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="E-Commerce"/>
+            <column name="NAME" value="a4s2ec"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Testarea Securitatii Sistemelor"/>
+            <column name="NAME" value="a4s2tss"/>
+        </insert>
+        <insert tableName="JHI_CURSURI">
+            <column name="ID" value="Sisteme de Operare II"/>
+            <column name="NAME" value="a4s2so2"/>
+        </insert>
+
+
+
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="1"/>
+            <column name="name" value="Radu Gologan"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="2"/>
+            <column name="name" value="Cristian Ghiu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="3"/>
+            <column name="name" value="Mircea Olteanu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="4"/>
+            <column name="name" value="Paul Flondor"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="5"/>
+            <column name="name" value="Ana Nita"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="6"/>
+            <column name="name" value="Vlad Posea"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="7"/>
+            <column name="name" value="Mircea Sularia"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="8"/>
+            <column name="name" value="Iulian Duca"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="9"/>
+            <column name="name" value="Mihai Carabas"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="10"/>
+            <column name="name" value="Razvan Deaconescu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="11"/>
+            <column name="name" value="Alexandru Radovici"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="12"/>
+            <column name="name" value="Razvan Rughinis"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="13"/>
+            <column name="name" value="Florin Pop"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="14"/>
+            <column name="name" value="Carmen Odubasteanu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="15"/>
+            <column name="name" value="Traian Rebedea"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="16"/>
+            <column name="name" value="Costin Chiru"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="17"/>
+            <column name="name" value="Mariana Mocanu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="18"/>
+            <column name="name" value="Gheorghe Simion"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="19"/>
+            <column name="name" value="Radu Constantin"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="20"/>
+            <column name="name" value="Ioan Luca"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="21"/>
+            <column name="name" value="Gabriela Ciuprina"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="22"/>
+            <column name="name" value="Mihai Iordache"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="23"/>
+            <column name="name" value="Marin Niculae"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="24"/>
+            <column name="name" value="Dorina Popovici"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="25"/>
+            <column name="name" value="Alexandrina Nenciu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="26"/>
+            <column name="name" value="Cristina Cirtoaje"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="27"/>
+            <column name="name" value="Alexandru Lupascu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="28"/>
+            <column name="name" value="Adrian Radu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="29"/>
+            <column name="name" value="Irina Mocanu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="30"/>
+            <column name="name" value="Serban Radu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="31"/>
+            <column name="name" value="Alexandru Olteanu"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="32"/>
+            <column name="name" value="Mugurel Andreica"/>
+        </insert>
+        <insert tableName="jhi_profesori">
+            <column name="ID" value="33"/>
+            <column name="name" value="George Popescu"/>
+        </insert>
+
+
+
+
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="1"/>
+            <column name="name" value="Mihai Barbulescu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="2"/>
+            <column name="name" value="Dennis Plosceanu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="3"/>
+            <column name="name" value="Andreea Stoican"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="4"/>
+            <column name="name" value="Alexandru Jercaianu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="5"/>
+            <column name="name" value="Denisa Sandu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="6"/>
+            <column name="name" value="Radu Stochitoiu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="7"/>
+            <column name="name" value="Darius Neatu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="8"/>
+            <column name="name" value="David Iancu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="9"/>
+            <column name="name" value="Andrei Vasiliu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="10"/>
+            <column name="name" value="Emil Racec"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="11"/>
+            <column name="name" value="Andrei Petrescu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="12"/>
+            <column name="name" value="Oana Caplescu"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="13"/>
+            <column name="name" value="Clementin cercel"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="14"/>
+            <column name="name" value="Sorin Ciolofan"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="15"/>
+            <column name="name" value="Bogdan Tiganoaia"/>
+        </insert>
+        <insert tableName="jhi_asistenti">
+            <column name="ID" value="16"/>
+            <column name="name" value="Diana Udrea"/>
+        </insert>
+
+
+
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="1"/>
+            <column name="ID_MATERIE" value="a1s1mate1"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="2"/>
+            <column name="ID_MATERIE" value="a1s1mate1"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="3"/>
+            <column name="ID_MATERIE" value="a1s1mate1"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="4"/>
+            <column name="ID_MATERIE" value="a1s1mate1"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="5"/>
+            <column name="ID_MATERIE" value="a1s1mate2"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="6"/>
+            <column name="ID_MATERIE" value="a1s1mate2"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="7"/>
+            <column name="ID_MATERIE" value="a1s1mate2"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="8"/>
+            <column name="ID_MATERIE" value="a1s1mate2"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="9"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="10"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="11"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="12"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="13"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="14"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="6"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="15"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="16"/>
+            <column name="ID_MATERIE" value="a1s1pl"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="17"/>
+            <column name="ID_MATERIE" value="a1s1pl"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="18"/>
+            <column name="ID_MATERIE" value="a1s2mate3"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="4"/>
+            <column name="ID_MATERIE" value="a1s2mate3"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="19"/>
+            <column name="ID_MATERIE" value="a1s2mate3"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="20"/>
+            <column name="ID_MATERIE" value="a1s2mate3"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="21"/>
+            <column name="ID_MATERIE" value="a1s2elth"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="22"/>
+            <column name="ID_MATERIE" value="a1s2elth"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="23"/>
+            <column name="ID_MATERIE" value="a1s2elth"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="24"/>
+            <column name="ID_MATERIE" value="a1s2elth"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="25"/>
+            <column name="ID_MATERIE" value="a1s2fizica"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="26"/>
+            <column name="ID_MATERIE" value="a1s2fizica"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="27"/>
+            <column name="ID_MATERIE" value="a1s2fizica"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="28"/>
+            <column name="ID_MATERIE" value="a1s2fizica"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="29"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="30"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="31"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="32"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="13"/>
+            <column name="ID_MATERIE" value="a1s2mn"/>
+        </insert>
+        <insert tableName="JHI_PROFESOR_MATERIE">
+            <column name="ID_PROFESOR" value="33"/>
+            <column name="ID_MATERIE" value="a1s2mn"/>
+        </insert>
+
+
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="13"/>
+            <column name="ID_MATERIE" value="a1s2mn"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="14"/>
+            <column name="ID_MATERIE" value="a1s2mn"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="15"/>
+            <column name="ID_MATERIE" value="a1s2mn"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="16"/>
+            <column name="ID_MATERIE" value="a1s2mn"/>
+        </insert>
+
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="9"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="10"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="11"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="12"/>
+            <column name="ID_MATERIE" value="a1s2sd"/>
+        </insert>
+
+
+
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="5"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="6"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="7"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="8"/>
+            <column name="ID_MATERIE" value="a1s1pc"/>
+        </insert>
+
+
+
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="1"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="2"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="3"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+        <insert tableName="JHI_ASISTENT_MATERIE">
+            <column name="ID_ASISTENT" value="4"/>
+            <column name="ID_MATERIE" value="a1s1uso"/>
+        </insert>
+
+
+
+    </changeSet>
+</databaseChangeLog>

@@ -67,4 +67,16 @@ public class MaterialsService {
     public MatExamene getMatExamByIdCurs(String idCurs) {
         return matExameneRepository.findOneById(Long.parseLong(idCurs)).orElse(null);
     }
+
+    public List<MatCursuri> getFilesNAC(){
+        return matCursuriRepository.getFilesNA();
+    }
+
+    public List<MatLaboratoare> getFilesNAL(){
+        return matLaboratoareRepository.getFilesNA();
+    }
+
+    public List<MatExamene> getFilesNAE(){
+        return matExameneRepository.getFilesNA();
+    }
 }

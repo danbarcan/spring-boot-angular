@@ -12,7 +12,7 @@ export class CoursesComponent {
 
     public cid: string;
     public course: String;
-    public file : any;
+    public filen : any;
     public files: any[];
     public years: any[];
 
@@ -27,7 +27,7 @@ export class CoursesComponent {
     }
 
     public changeFile(evt: any): void{
-        this.file = evt.target.files[0];
+        this.filen = evt.target.files[0];
     }
 
     public getFileName(file): string{
@@ -36,8 +36,8 @@ export class CoursesComponent {
     }
 
     public uploadFile(year): void {
-        this.courseService.makeFileRequest('/api/upload/curs/'+this.cid +'/'+year, this.file).subscribe();
-        this.file = null;
+        this.courseService.makeFileRequest('/api/upload/curs/'+this.cid +'/'+year, this.filen).subscribe();
+        this.filen = null;
     }
 
     public show(year): void{

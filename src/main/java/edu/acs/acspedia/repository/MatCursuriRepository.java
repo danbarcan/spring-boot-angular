@@ -15,5 +15,8 @@ public interface MatCursuriRepository extends JpaRepository<MatCursuri, Long> {
     @Query("SELECT m FROM MatCursuri m where m.idCurs = :cid and m.activated = true")
     List<MatCursuri> getMatCursuri(@Param("cid") String cid);
 
+    @Query("SELECT m FROM MatCursuri m where m.activated = false")
+    List<MatCursuri> getFilesNA();
+
     Optional<MatCursuri> findOneById(Long id);
 }

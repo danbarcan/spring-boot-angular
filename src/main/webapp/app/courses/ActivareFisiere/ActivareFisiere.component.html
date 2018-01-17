@@ -1,0 +1,90 @@
+<div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+    <div class="card" *ngIf="fisiereC">
+        <h1 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Cursuri</h1>
+        <div class="card-body " style="border-color: #002b80" >
+            <div class="table-responsive">
+                <table class="table">
+                    <tr *ngFor="let file of fisiereC">
+                        <td><a [attr.href] = "'/api/download/curs/' + file.id "
+                               role="tab"
+                               data-toggle="tab">
+                            {{getFileName(file)}}
+                        </a></td>
+                        <td><button (click)="activateMC(file)"
+                                    class="btn btn-primary"
+                                    style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Activate </button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="fisiereL">
+        <h1 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Laboratoare</h1>
+        <div class="card-body " style="border-color: #002b80" >
+            <div class="table-responsive">
+                <table class="table">
+                    <tr *ngFor="let file of fisiereL">
+                        <td><a [attr.href] = "'/api/download/lab/' + file.id "
+                               role="tab"
+                               data-toggle="tab">
+                            {{getFileName(file)}}
+                        </a></td>
+                        <td><button (click)="activateML(file)"
+                                    class="btn btn-primary"
+                                    style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Activate </button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="fisiereE">
+        <h1 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Examene</h1>
+        <div class="card-body " style="border-color: #002b80" >
+            <div class="table-responsive">
+                <table class="table">
+                    <tr *ngFor="let file of fisiereE">
+                        <td><a [attr.href] = "'/api/download/prez/' + file.id "
+                               role="tab"
+                               data-toggle="tab">
+                            {{getFileName(file)}}
+                        </a></td>
+                        <td><button (click)="activateME(file)"
+                                    class="btn btn-primary"
+                                    style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Activate </button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="fisiereP">
+        <h1 class="card-header primary-color white-tex"
+            style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
+                       font-size: large; font-weight: 400">Rezolvari Probleme</h1>
+        <div class="card-body " style="border-color: #002b80" >
+            <div class="table-responsive">
+                <table class="table">
+                    <tr *ngFor="let file of fisiereP; trackBy: trackByFn">
+                        <td><a [attr.href] = "'/api/download/curs/' + file.id "
+                               role="tab"
+                               data-toggle="tab">
+                            {{getFileName(file)}}
+                        </a></td>
+                        <td><button (click)="activateP(file)"
+                                    class="btn btn-primary"
+                                    style="background-color: #002b80; color: #c1ffff; border-width: 0;
+                            text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Activate </button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

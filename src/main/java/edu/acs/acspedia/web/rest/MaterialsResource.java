@@ -21,7 +21,7 @@ import static edu.acs.acspedia.web.rest.util.FileUtil.saveFileToDisk;
 @RequestMapping("/api")
 public class MaterialsResource {
     private final MaterialsService materialsService;
-    private final String MATERIALS_PATH = "D:/";
+    private final String MATERIALS_PATH = "F:/";
 
     public MaterialsResource(MaterialsService materialsService) {
         this.materialsService = materialsService;
@@ -134,6 +134,24 @@ public class MaterialsResource {
             return "File saved";
         }
         return "File not saved";
+    }
+
+    @GetMapping("/curs/getfilesNA")
+    @Timed
+    public List<MatCursuri> getFilesNAC() {
+        return materialsService.getFilesNAC();
+    }
+
+    @GetMapping("/labs/getfilesNA")
+    @Timed
+    public List<MatLaboratoare> getFilesNAL() {
+        return materialsService.getFilesNAL();
+    }
+
+    @GetMapping("/exams/getfilesNA")
+    @Timed
+    public List<MatExamene> getFilesNAE() {
+        return materialsService.getFilesNAE();
     }
 
     @GetMapping("/download/exam/{cid}")

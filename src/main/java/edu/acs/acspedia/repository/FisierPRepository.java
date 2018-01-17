@@ -15,4 +15,7 @@ public interface FisierPRepository extends JpaRepository<FisierP, Long> {
 
     @Query("SELECT f FROM FisierP f where f.pid = :pid and f.activated = true")
     List<FisierP> getFiles(@Param("pid") Long pid);
+
+    @Query("SELECT m FROM FisierP m where m.activated = false")
+    List<FisierP> getFilesNA();
 }
