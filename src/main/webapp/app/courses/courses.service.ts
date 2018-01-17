@@ -61,11 +61,11 @@ export class CoursesService {
         return this.http.get('api/mat_courses/' + courseId ).map( (c) => c.json());
     }
 
-    getMLabs(courseId: string): Observable<String> {
+    getMLabs(courseId: string): Observable<any> {
         return this.http.get('api/m_labs/' + courseId ).map( (c) => c.json());
     }
 
-    getMExams(courseId: string): Observable<String> {
+    getMExams(courseId: string): Observable<any> {
         return this.http.get('api/m_exams/' + courseId ).map( (c) => c.json());
     }
 

@@ -5,27 +5,25 @@ import edu.acs.acspedia.domain.MatCursuri;
 import edu.acs.acspedia.domain.MatExamene;
 import edu.acs.acspedia.domain.MatLaboratoare;
 import edu.acs.acspedia.service.MaterialsService;
-import org.apache.commons.io.FileUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+import static edu.acs.acspedia.web.rest.util.FileUtil.downloadFile;
+import static edu.acs.acspedia.web.rest.util.FileUtil.saveFileToDisk;
 
 @RestController
 @RequestMapping("/api")
 public class MaterialsResource {
     private final MaterialsService materialsService;
-    private final String MATERIALS_PATH = "F:/";
+    private final String MATERIALS_PATH = "D:/";
 
-    public MaterialsResource(MaterialsService materialsService){
+    public MaterialsResource(MaterialsService materialsService) {
         this.materialsService = materialsService;
     }
 
@@ -65,6 +63,18 @@ public class MaterialsResource {
         return "File not saved";
     }
 
+    @GetMapping("/download/curs/{cid}")
+    @Timed
+    public void downloadCurs(@PathVariable("cid") String cid, HttpServletResponse response) {
+        MatCursuri matCurs = materialsService.getMatCursByIdCurs(cid);
+        if (matCurs != null) {
+            downloadFile(response, matCurs.getPath());
+        } else {
+            System.out.println("err no file");
+        }
+
+    }
+
     @PutMapping("/activate/matCursuri")
     @Timed
     public void activateFile(@RequestBody @Valid MatCursuri fisier) {
@@ -88,6 +98,17 @@ public class MaterialsResource {
             return "File saved";
         }
         return "File not saved";
+    }
+
+    @GetMapping("/download/lab/{cid}")
+    @Timed
+    public void downloadLaborator(@PathVariable("cid") String cid, HttpServletResponse response) {
+        MatLaboratoare matLab = materialsService.getMatLabByIdCurs(cid);
+        if (matLab != null) {
+            downloadFile(response, matLab.getPath());
+        } else {
+            System.out.println("err no file");
+        }
     }
 
     @PutMapping("/activate/matLab")
@@ -115,20 +136,21 @@ public class MaterialsResource {
         return "File not saved";
     }
 
+    @GetMapping("/download/exam/{cid}")
+    @Timed
+    public void downloadExamen(@PathVariable("cid") String cid, HttpServletResponse response) {
+        MatExamene matExam = materialsService.getMatExamByIdCurs(cid);
+        if (matExam != null) {
+            downloadFile(response, matExam.getPath());
+        } else {
+            System.out.println("err no file");
+        }
+    }
+
     @PutMapping("/activate/matExam")
     @Timed
     public void activateFile(@RequestBody @Valid MatExamene fisier) {
         fisier.setActivated(true);
         materialsService.uploadExam(fisier);
-    }
-
-    private boolean saveFileToDisk(MultipartFile file, String path) {
-        try {
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File(path));
-            return true;
-        } catch (IOException ioe) {
-            log.println(ioe);
-            return false;
-        }
     }
 }

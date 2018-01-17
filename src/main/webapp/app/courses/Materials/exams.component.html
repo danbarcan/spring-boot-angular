@@ -12,7 +12,13 @@
             <div *ngIf="year.show">
                 <div *ngFor="let file of files">
                     <ul>
-                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 550; font-size: medium">{{getFileName(file)}}</span>
+                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 550; font-size: medium">
+                            <a [attr.href] = "'/api/download/exam/' + file.id "
+                               role="tab"
+                               data-toggle="tab">
+                                {{getFileName(file)}}
+                            </a>
+                        </span>
                     </ul>
                 </div>
                 <div style="padding-left: 2rem; padding-right: 2rem">
@@ -21,7 +27,7 @@
                         type="file"
                         style="background-color: #a1ffff; color: #001133"
                         class="form-control-file"
-                        accept=".doc,.docx,.pdf,.txt"
+                        accept=".doc,.docx,.pdf,.txt,.jpg,.png"
                         aria-describedby="fileHelp"
                         (change)="changeFile($event)">
                     <button (click)="uploadFile(year.year)"
@@ -29,7 +35,7 @@
                             style="background-color: #002b80; color: #c1ffff; border-width: 0;
                             text-align: center; margin: 0 auto; display:block; padding-top: 0.2rem; padding-bottom: 0.2rem"> Upload </button>
                     <small id="fileHelp" class="form-text text-muted">
-                        The file must be doc, docx, pdf or txt and less than 10MB.
+                        The file must be doc, docx, pdf, jpg, png or txt and less than 10MB.
                     </small>
                 </div>
             </div>

@@ -12,7 +12,13 @@
             <div *ngIf="year.show">
                 <div *ngFor="let file of files">
                     <ul>
-                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 550; font-size: medium">{{getFileName(file)}}</span>
+                        <span *ngIf="year.year === file.year" style="color: #002b80; font-weight: 550; font-size: medium">
+                            <a [attr.href] = "'/api/download/curs/' + file.id "
+                                role="tab"
+                                data-toggle="tab">
+                                {{getFileName(file)}}
+                            </a>
+                        </span>
                     </ul>
                 </div>
                 <div style="padding-left: 2rem; padding-right: 2rem">

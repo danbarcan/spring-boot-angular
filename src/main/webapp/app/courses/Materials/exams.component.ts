@@ -21,7 +21,7 @@ export class ExamsComponent {
         this.route.params.subscribe((params) => {
             this.cid = params['cid'];
             this.courseService.find(this.cid).subscribe((x) => this.course = x);
-            this.courseService.getMCourses(this.cid).subscribe((x) => this.files = x);
+            this.courseService.getMExams(this.cid).subscribe((x) => this.files = x);
         });
     }
 

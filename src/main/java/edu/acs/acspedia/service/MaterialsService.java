@@ -56,4 +56,15 @@ public class MaterialsService {
         matExameneRepository.save(matExamene);
     }
 
+    public MatCursuri getMatCursByIdCurs(String idCurs) {
+        return matCursuriRepository.findOneById(Long.parseLong(idCurs)).orElse(null);
+    }
+
+    public MatLaboratoare getMatLabByIdCurs(String idCurs) {
+        return matLaboratoareRepository.findOneById(Long.parseLong(idCurs)).orElse(null);
+    }
+
+    public MatExamene getMatExamByIdCurs(String idCurs) {
+        return matExameneRepository.findOneById(Long.parseLong(idCurs)).orElse(null);
+    }
 }
