@@ -16,6 +16,7 @@ export class AfisareProblemaComponent {
     public getURL: string;
     public pid : number;
     public file : any;
+    public files: any[];
 
     constructor( private courseService: CoursesService,
                  private principal: Principal,
@@ -25,7 +26,10 @@ export class AfisareProblemaComponent {
             this.pid = params['id'];
             this.type = "probleme";
             this.getURL = 'api/pareri/' + this.type + '/' + this.cid;
-            this.courseService.getFromURL('api/problema/' + this.pid).subscribe((x) => this.problema = x);
+            this.courseService.getFromURL('api/problema/' + this.pid).subscribe((x) => {
+                this.problema = x;
+            });
+            this.courseService.getFromURL('api/problema/getfiles' + this.pid).subscribe((x) => this.files = x);
             this.principal.identity().then( (x) => this.username = x.login)
 
         });
@@ -42,5 +46,10 @@ export class AfisareProblemaComponent {
 
     public show(f){
         f.show = !f.show;
+    }
+
+    public getFileName(file): string{
+        let name = file.path.split('/');
+        return name[name.length-1];
     }
 }

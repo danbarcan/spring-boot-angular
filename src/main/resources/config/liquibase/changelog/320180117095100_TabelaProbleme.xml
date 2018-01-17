@@ -43,30 +43,17 @@
             <column name="activated" type="boolean">
                 <constraints  nullable="false"/>
             </column>
-        </createTable>
-
-        <createTable tableName="jhi_mapare_probleme_fisiere">
-            <column name="ID" type="bigint" autoIncrement="${autoIncrement}">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
             <column name="pid" type="bigint">
                 <constraints  nullable="false"/>
             </column>
-            <column name="fid" type="bigint">
-                <constraints  nullable="false"/>
-            </column>
         </createTable>
 
+
         <addForeignKeyConstraint baseColumnNames="pid"
-                                 baseTableName="jhi_mapare_probleme_fisiere"
-                                 constraintName="fk_m_probleme"
+                                 baseTableName="jhi_fisiere_probleme"
+                                 constraintName="fk_fisier_probleme"
                                  referencedColumnNames="ID"
                                  referencedTableName="jhi_probleme"/>
 
-        <addForeignKeyConstraint baseColumnNames="fid"
-                                 baseTableName="jhi_mapare_probleme_fisiere"
-                                 constraintName="fk_m_pfisiere"
-                                 referencedColumnNames="ID"
-                                 referencedTableName="jhi_fisiere_probleme"/>
     </changeSet>
 </databaseChangeLog>

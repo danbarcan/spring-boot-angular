@@ -3,9 +3,7 @@ package edu.acs.acspedia.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import edu.acs.acspedia.domain.FisierP;
-import edu.acs.acspedia.domain.MaparePF;
 import edu.acs.acspedia.domain.Problema;
-import edu.acs.acspedia.repository.MaparePFRepository;
 import edu.acs.acspedia.service.ProblemaService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,12 +19,10 @@ import static edu.acs.acspedia.web.rest.util.FileUtil.saveFileToDisk;
 public class ProblemaResource {
 
     private final ProblemaService problemaService;
-    private final MaparePFRepository maparePFRepository;
     private final String MATERIALS_PATH = "F:/";
 
-    public ProblemaResource(ProblemaService problemaService, MaparePFRepository maparePFRepository){
+    public ProblemaResource(ProblemaService problemaService){
         this.problemaService = problemaService;
-        this.maparePFRepository = maparePFRepository;
     }
 
     @GetMapping("/probleme/{cid}")
@@ -47,6 +43,12 @@ public class ProblemaResource {
         return problemaService.getProblemeR(cid);
     }
 
+    @GetMapping("/problema/getfiles/{pid}")
+    @Timed
+    public List<FisierP> getFiles(@PathVariable("pid") Long pid) {
+        return problemaService.getFiles(pid);
+    }
+
     @PostMapping("/saveProblema")
     public Problema save(@Valid @RequestBody Problema p) {
         return problemaService.save(p);
@@ -60,12 +62,9 @@ public class ProblemaResource {
         String path = MATERIALS_PATH + "fisiereP/" + file.getOriginalFilename();
         fisierP.setPath(path);
         fisierP.setActivated(false);
+        fisierP.setPid(pid);
         if (saveFileToDisk(file, path)) {
-            fisierP = problemaService.saveFile(fisierP);
-            MaparePF m = new MaparePF();
-            m.setFid(fisierP.getId());
-            m.setPid(pid);
-            maparePFRepository.saveAndFlush(m);
+            problemaService.saveFile(fisierP);
             return "File saved";
         }
         return "File not saved";

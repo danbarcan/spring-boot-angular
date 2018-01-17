@@ -1,4 +1,4 @@
-<div *ngIf="problema" >
+<div *ngIf="problema && files" >
     <div class="card">
         <h3 class="card-header primary-color white-tex"
             style="background-color: #002b80; color: #c1ffff; padding: 0.2rem 1.5rem;
@@ -10,12 +10,12 @@
             <br>
             <br>
             <br>
-            <div *ngFor="let file of problema.files" style="padding-left: 2rem; padding-right: 2rem">
+            <div *ngFor="let f of files" style="padding-left: 2rem; padding-right: 2rem">
                 <br>
                 <span style="font-family: 'Comic Sans MS'; font-size: large; padding: .05rem 1.25rem"
-                      (click)="show(file)">{{year.year}}</span>
+                      (click)="show(f)">{{getFileName(f)}}</span>
                 <hr style="background-color: #cccccc">
-                <div *ngIf="file.show">
+                <div *ngIf="f.show">
                     <jhi-forum [getURL]="getURL" [pid]="pid" [type]="type" [username]="username" ></jhi-forum>
                 </div>
             </div>

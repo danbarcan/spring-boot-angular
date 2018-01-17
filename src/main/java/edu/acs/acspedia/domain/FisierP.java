@@ -21,6 +21,18 @@ public class FisierP {
     @Column(name = "activated")
     private Boolean activated;
 
+    @NotNull
+    @Column(name = "pid")
+    private Long pid;
+
+    public void setPid(Long pid) {
+        this.pid = pid;
+    }
+
+    public Long getPid() {
+        return pid;
+    }
+
     public Boolean getActivated() {
         return activated;
     }

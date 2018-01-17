@@ -38,6 +38,10 @@ public class ProblemaService {
     }
 
     public FisierP saveFile(FisierP p){
-        return fisierPRepository.saveAndFlush(p);
+        return fisierPRepository.save(p);
+    }
+
+    public List<FisierP> getFiles(Long pid){
+        return fisierPRepository.getFiles(pid);
     }
 }

@@ -1,11 +1,10 @@
 package edu.acs.acspedia.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.List;
+
 
 @Entity
 @Table(name = "jhi_probleme")
@@ -79,18 +78,6 @@ public class Problema {
         this.idMaterie = idMaterie;
     }
 
-
-
-    @ManyToMany
-    @JoinTable(
-        name = "jhi_mapare_probleme_fisiere",
-        joinColumns = {@JoinColumn(name = "pid", referencedColumnName = "id")},
-        inverseJoinColumns = {@JoinColumn(name = "fid", referencedColumnName = "id")})
-    private Set<FisierP> files = new HashSet<>();
-
-    public Set<FisierP> getFiles() {
-        return files;
-    }
 
     @Override
     public boolean equals(Object o) {
