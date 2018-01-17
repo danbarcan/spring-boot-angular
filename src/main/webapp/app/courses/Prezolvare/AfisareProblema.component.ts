@@ -25,11 +25,11 @@ export class AfisareProblemaComponent {
             this.cid = params['cid'];
             this.pid = params['id'];
             this.type = "probleme";
-            this.getURL = 'api/pareri/' + this.type + '/' + this.cid;
+            this.getURL = 'api/pareriP/' + this.type + '/' + this.pid;
             this.courseService.getFromURL('api/problema/' + this.pid).subscribe((x) => {
                 this.problema = x;
             });
-            this.courseService.getFromURL('api/problema/getfiles' + this.pid).subscribe((x) => this.files = x);
+            this.courseService.getFromURL('api/p/getfiles/' + this.pid).subscribe((x) => this.files = x);
             this.principal.identity().then( (x) => this.username = x.login)
 
         });

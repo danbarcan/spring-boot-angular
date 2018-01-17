@@ -43,7 +43,7 @@ public class ProblemaResource {
         return problemaService.getProblemeR(cid);
     }
 
-    @GetMapping("/problema/getfiles/{pid}")
+    @GetMapping("/p/getfiles/{pid}")
     @Timed
     public List<FisierP> getFiles(@PathVariable("pid") Long pid) {
         return problemaService.getFiles(pid);
