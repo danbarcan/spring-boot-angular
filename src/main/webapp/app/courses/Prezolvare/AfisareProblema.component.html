@@ -10,12 +10,22 @@
             <br>
             <br>
             <br>
-            <div *ngFor="let f of files" style="padding-left: 2rem; padding-right: 2rem">
+            <div *ngFor="let f of files; let idx = index" style="padding-left: 2rem; padding-right: 2rem">
                 <br>
                 <span style="font-family: 'Comic Sans MS'; font-size: large; padding: .05rem 1.25rem"
-                      (click)="show(f)">{{getFileName(f)}}</span>
-                <hr style="background-color: #cccccc">
+                      (click)="show(f)"> Rezolvare {{idx}}</span>
+                <hr style="background-color: #cccccc; margin-top: 0rem">
                 <div *ngIf="f.show">
+                    <ul>
+                        <span style="color: #001133; font-weight: 500; font-size: medium">
+                            <a [attr.href] = "'api/download/prez/' + f.id "
+                               role="tab"
+                               data-toggle="tab">
+                                {{getFileName(f)}}
+                            </a>
+                        </span>
+                    </ul>
+                    <br>
                     <jhi-forum [getURL]="getURL" [pid]="pid" [type]="type" [username]="username" ></jhi-forum>
                 </div>
             </div>

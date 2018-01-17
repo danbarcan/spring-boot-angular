@@ -44,4 +44,8 @@ public class ProblemaService {
     public List<FisierP> getFiles(Long pid){
         return fisierPRepository.getFiles(pid);
     }
+
+    public FisierP getFile(Long fid) {
+        return fisierPRepository.getOne(fid);
+    }
 }

@@ -3,15 +3,18 @@ package edu.acs.acspedia.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import edu.acs.acspedia.domain.FisierP;
+import edu.acs.acspedia.domain.MatExamene;
 import edu.acs.acspedia.domain.Problema;
 import edu.acs.acspedia.service.ProblemaService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static edu.acs.acspedia.web.rest.util.FileUtil.downloadFile;
 import static edu.acs.acspedia.web.rest.util.FileUtil.saveFileToDisk;
 
 @RestController
@@ -68,6 +71,17 @@ public class ProblemaResource {
             return "File saved";
         }
         return "File not saved";
+    }
+
+    @GetMapping("/download/prez/{fid}")
+    @Timed
+    public void downloadExamen(@PathVariable("fid") Long fid, HttpServletResponse response) {
+        FisierP matExam = problemaService.getFile(fid);
+        if (matExam != null) {
+            downloadFile(response, matExam.getPath());
+        } else {
+            System.out.println("err no file");
+        }
     }
 
     @PutMapping("/activate/probFile")
