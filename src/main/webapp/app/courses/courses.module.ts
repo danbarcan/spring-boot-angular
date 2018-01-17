@@ -37,7 +37,7 @@ export const courseroute: Routes = [
             },
             {
                 path: 'courses/:cid/materiale/laboratoare',
-                component: CoursesComponent
+                component: LabsComponent
             },
             {
                 path: 'courses/:cid/pareri/:type',

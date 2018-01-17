@@ -57,15 +57,15 @@ export class CoursesService {
         });
     }
 
-    getMCourses(courseId: number): Observable<any> {
-        return this.http.get('api/m_courses/' + courseId ).map( (c) => c.json());
+    getMCourses(courseId: string): Observable<any> {
+        return this.http.get('api/mat_courses/' + courseId ).map( (c) => c.json());
     }
 
-    getMLabs(courseId: number): Observable<String> {
+    getMLabs(courseId: string): Observable<String> {
         return this.http.get('api/m_labs/' + courseId ).map( (c) => c.json());
     }
 
-    getMExams(courseId: number): Observable<String> {
+    getMExams(courseId: string): Observable<String> {
         return this.http.get('api/m_exams/' + courseId ).map( (c) => c.json());
     }
 

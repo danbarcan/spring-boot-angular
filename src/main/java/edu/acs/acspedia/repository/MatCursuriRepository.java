@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MatCursuriRepository extends JpaRepository<MatCursuri, String> {
+public interface MatCursuriRepository extends JpaRepository<MatCursuri, Long> {
 
-    @Query("SELECT m FROM MatCursuri m where m.idCurs = :cid and m.activated = 1")
+    @Query("SELECT m FROM MatCursuri m where m.idCurs = :cid and m.activated = true")
     List<MatCursuri> getMatCursuri(@Param("cid") String cid);
 
 }

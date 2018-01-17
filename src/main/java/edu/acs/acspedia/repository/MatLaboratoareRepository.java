@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Set;
 
 @Repository
-public interface MatLaboratoareRepository extends JpaRepository<MatLaboratoare, String> {
+public interface MatLaboratoareRepository extends JpaRepository<MatLaboratoare, Long> {
 
-    @Query("SELECT m FROM MatLaboratoare m where m.idCurs = :cid and m.activated = 1")
+    @Query("SELECT m FROM MatLaboratoare m where m.idCurs = :cid and m.activated = true")
     Set<MatLaboratoare> getMatLaboratoare(@Param("cid") String cid);
 
 }
